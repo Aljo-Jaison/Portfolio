@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SocialProof from './components/SocialProof';
 import JourneySection from './components/JourneySection';
 import StackedProjectsSection from './components/StackedProjectsSection';
 import DesignProcess from './components/DesignProcess';
+import WhenICanHelp from './components/WhenICanHelp';
+import LookingForSection from './components/LookingForSection';
 import SkillsAndTools from './components/SkillsAndTools';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
@@ -20,20 +22,26 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1">
-        {/* 1:1 Replicated Hero Section with 3 CTAs & exact Lottie illustration */}
+        {/* Hero Section with 3 CTAs & exact Lottie illustration */}
         <Hero />
 
-        {/* 1:1 Replicated Client Logos Ribbon ("A FEW OF THE PLACES I WORKED") */}
+        {/* Client Logos Ribbon ("A FEW OF THE PLACES I WORKED") */}
         <SocialProof />
 
-        {/* 1:1 Replicated "My journey through design" with animated car & timeline */}
+        {/* "My journey through design" with animated car & timeline */}
         <JourneySection />
 
-        {/* 1:1 Replicated "Products I've worked on" with Sticky Scroll Stack Cards */}
+        {/* "Products I've worked on" with Sticky Scroll Stack Cards */}
         <StackedProjectsSection />
 
-        {/* 4-Step Design Methodology */}
+        {/* "My Design Process" with 6 pastel steps & medal illustration */}
         <DesignProcess />
+
+        {/* "When I can help?" with 2x2 grid & ringing clock illustration */}
+        <WhenICanHelp />
+
+        {/* "Are you’re looking for.." with 2x2 white cards & cap/glasses illustration */}
+        <LookingForSection />
 
         {/* Capabilities & Toolchain Bento */}
         <SkillsAndTools />
@@ -48,7 +56,7 @@ export default function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Floating badges & widgets from screenshot (Awwwards Nominee, Social pill, Chat widget) */}
+      {/* Floating accessories (Awwwards Nominee, Social pill, Chat widget) */}
       <FloatingDecorations />
     </div>
   );
