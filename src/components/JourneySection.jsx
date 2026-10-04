@@ -92,7 +92,7 @@ export default function JourneySection() {
     : milestones.filter(m => m.year === selectedYear);
 
   return (
-    <section id="journey" className="py-20 md:py-28 bg-white border-t border-zinc-100 overflow-hidden">
+    <section id="journey" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100 overflow-hidden">
       <div className="site-container">
         
         {/* Animated Car over Bumps / Forest */}
@@ -111,7 +111,7 @@ export default function JourneySection() {
         </div>
 
         {/* Scaled Horizontal Timeline Track Bar */}
-        <div className="my-10 max-w-2xl sm:max-w-3xl mx-auto px-4">
+        <div className="my-6 sm:my-8 md:my-10 max-w-2xl sm:max-w-3xl mx-auto px-4">
           {/* Timeline Nodes & Connecting Bar */}
           <div className="relative flex items-center justify-between">
             {/* Background horizontal connecting line */}

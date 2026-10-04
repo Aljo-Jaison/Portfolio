@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, Calendar, ArrowRight, MessageSquare, Loader2, AlertCircle } from 'lucide-react';
+import { Check, Calendar, ArrowRight, MessageSquare, Loader2, AlertCircle } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 
 export default function ContactSection() {
-  const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(true);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submittedData, setSubmittedData] = useState(null);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(personalInfo.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,11 +62,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section id="contact" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Section Header with Line Art Illustration */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               Let's create something thoughtful together
@@ -96,89 +89,65 @@ export default function ContactSection() {
         {/* 2-Column Layout with Synchronized Equal Heights */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
-          {/* Left Column: Direct Quick Contact Cards (Total height matches right box) */}
-          <div className="lg:col-span-5 flex flex-col gap-5 h-full">
-            
-            {/* Direct Email Card */}
-            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-zinc-200/60 shadow-xs hover:border-zinc-300 transition-all duration-200 flex flex-col justify-between flex-1 space-y-5">
-              <div className="space-y-3.5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-700">
-                    <div className="w-9 h-9 rounded-xl bg-zinc-100 border border-zinc-200/80 flex items-center justify-center">
-                      <Mail className="w-4 h-4 text-zinc-950" />
-                    </div>
-                    <span>Direct Email</span>
-                  </div>
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" title="Active"></span>
-                </div>
-
-                <div>
-                  <a 
-                    href={`mailto:${personalInfo.email}`}
-                    className="text-base sm:text-lg font-bold text-zinc-950 hover:underline tracking-tight select-all block"
-                  >
-                    {personalInfo.email}
-                  </a>
-                  <div className="text-xs sm:text-sm text-zinc-600 mt-1 font-medium">
-                    Typical response time: within 12–24 hours
-                  </div>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 min-h-[44px] rounded-xl bg-zinc-50 border border-zinc-200 hover:bg-zinc-100 hover:border-zinc-300 text-xs sm:text-sm font-semibold text-zinc-800 transition-all cursor-pointer shadow-2xs"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-4 h-4 text-emerald-600 stroke-[2.5]" />
-                    <span className="text-emerald-800 font-bold">Email Copied to Clipboard!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 text-zinc-600" />
-                    <span>Copy Email Address</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Book A Discovery Call Card (Sleek Black Card with White CTA) */}
-            <div className="bg-zinc-950 text-white rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between flex-1 space-y-5">
-              <div className="space-y-3.5">
+          {/* Left Column: Book A Discovery Call Card */}
+          <div className="lg:col-span-5 bg-zinc-950 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-9 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between h-full space-y-6">
+            <div className="space-y-5">
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-300">
                   <Calendar className="w-4 h-4 text-emerald-400" />
                   <span>Book A Discovery Call</span>
                 </div>
-
-                <div className="space-y-1.5">
-                  <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                    15–20 Min Strategy Chat
-                  </h4>
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed tracking-normal">
-                    Have an urgent product launch or complex architecture to discuss? Let's hop on a 20-min strategy call.
-                  </p>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Available</span>
                 </div>
               </div>
 
-              <div className="pt-2">
-                <a
-                  href={personalInfo.socials.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 min-h-[44px] rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 text-xs sm:text-sm font-bold transition-colors shadow-sm group"
-                >
-                  <span>Select A Time On Calendly</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </a>
+              <div className="space-y-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  15–20 Min Strategy Chat
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed tracking-normal">
+                  Have an urgent product launch, a design system to build, or a full-time role to discuss? Let's hop on a call to map out the best approach.
+                </p>
+              </div>
+
+              {/* What to expect checklist */}
+              <div className="pt-2 space-y-3">
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Free 20-min product & UX discovery session</span>
+                </div>
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Direct 1-on-1 walkthrough of your roadmap & design needs</span>
+                </div>
+                <div className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span>Actionable feedback and zero obligation</span>
+                </div>
               </div>
             </div>
 
+            <div className="pt-4 space-y-3">
+              <a
+                href={personalInfo.socials.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 min-h-[48px] rounded-xl bg-white text-zinc-950 hover:bg-zinc-100 text-sm font-bold transition-all shadow-sm group cursor-pointer"
+              >
+                <Calendar className="w-4 h-4 text-zinc-950" />
+                <span>Select A Time On Calendly</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+              <p className="text-center text-[11px] text-zinc-400 font-normal">
+                Powered by Calendly · Instant Google Meet / Zoom confirmation
+              </p>
+            </div>
           </div>
 
-          {/* Right Column: Send A Direct Message Box (Stretches to exactly match left column total height) */}
-          <div className="lg:col-span-7 bg-white p-7 sm:p-9 rounded-2xl border border-zinc-200/60 shadow-xs hover:border-zinc-300 transition-all duration-200 flex flex-col justify-between h-full">
+          {/* Right Column: Send A Direct Message Box */}
+          <div className="lg:col-span-7 bg-white p-5 sm:p-7 md:p-9 rounded-2xl sm:rounded-3xl border border-zinc-200/60 shadow-xs hover:border-zinc-300 transition-all duration-200 flex flex-col justify-between h-full">
             {!formSubmitted ? (
               <>
                 <div>

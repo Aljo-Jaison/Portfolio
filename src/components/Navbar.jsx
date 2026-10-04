@@ -4,6 +4,7 @@ import { Menu, X, Download } from 'lucide-react';
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
+  const [inAboutSection, setInAboutSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,14 @@ export default function Navbar() {
         setScrolledPastHero(window.scrollY > (heroBottom - 120));
       } else {
         setScrolledPastHero(window.scrollY > 400);
+      }
+
+      // Check if user is currently inside the About section
+      const aboutEl = document.getElementById('about');
+      if (aboutEl) {
+        const rect = aboutEl.getBoundingClientRect();
+        // Active when About section is occupying the viewport
+        setInAboutSection(rect.top <= 140 && rect.bottom >= 100);
       }
     };
 
@@ -67,16 +76,24 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Resume Download Button */}
-          <a
-            href="/resume.pdf"
-            download="Aljo_KJ_Resume.pdf"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200/80 text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:border-zinc-300 hover:bg-zinc-50/80 transition-all shadow-xs"
-            title="Download Resume"
+          {/* Resume Download Button (Hidden when viewing About section) */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+              !inAboutSection 
+                ? 'max-w-[130px] opacity-100 scale-100' 
+                : 'max-w-0 opacity-0 scale-95 pointer-events-none'
+            }`}
           >
-            <Download className="w-3.5 h-3.5 text-zinc-500" />
-            <span>Resume</span>
-          </a>
+            <a
+              href="/resume.pdf"
+              download="Aljo_KJ_Resume.pdf"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-200/80 text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:border-zinc-300 hover:bg-zinc-50/80 transition-all shadow-xs whitespace-nowrap"
+              title="Download Resume"
+            >
+              <Download className="w-3.5 h-3.5 text-zinc-500" />
+              <span>Resume</span>
+            </a>
+          </div>
 
           {/* Dynamic "Contact me" CTA Button that smoothly appears when scrolling past Hero */}
           <div 
@@ -107,15 +124,24 @@ export default function Navbar() {
             </a>
           )}
 
-          <a
-            href="/resume.pdf"
-            download="Aljo_KJ_Resume.pdf"
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold text-zinc-700 hover:text-zinc-950"
-            title="Download Resume"
+          {/* Mobile Resume Button (Hidden when viewing About section) */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+              !inAboutSection 
+                ? 'max-w-[110px] opacity-100 scale-100' 
+                : 'max-w-0 opacity-0 scale-95 pointer-events-none'
+            }`}
           >
-            <Download className="w-3.5 h-3.5 text-zinc-500" />
-            <span>Resume</span>
-          </a>
+            <a
+              href="/resume.pdf"
+              download="Aljo_KJ_Resume.pdf"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold text-zinc-700 hover:text-zinc-950 whitespace-nowrap"
+              title="Download Resume"
+            >
+              <Download className="w-3.5 h-3.5 text-zinc-500" />
+              <span>Resume</span>
+            </a>
+          </div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

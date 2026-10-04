@@ -22,11 +22,11 @@ const helpPoints = [
 
 export default function WhenICanHelp() {
   return (
-    <section className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Header with Ringing Alarm Clock Illustration matching screenshot */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-16">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               When I can help?
@@ -55,7 +55,7 @@ export default function WhenICanHelp() {
         </div>
 
         {/* 2x2 Grid with green checkmarks matching screenshot */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 sm:gap-y-8 md:gap-y-10 pt-2">
           {helpPoints.map((point, index) => (
             <div key={index} className="flex items-start gap-3.5">
               {/* Green checkmark circle */}

@@ -42,11 +42,11 @@ const processSteps = [
 
 export default function DesignProcess() {
   return (
-    <section id="process" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section id="process" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Header with Medal Ribbon Illustration matching screenshot */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               My Design Process
@@ -54,14 +54,6 @@ export default function DesignProcess() {
             <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed">
               A user-centered, data-informed process, built to solve real problems, not just deliver pretty screens.
             </p>
-            <div className="pt-2">
-              <a
-                href="#how-it-works"
-                className="btn-primary px-5 py-2.5 text-xs rounded-lg"
-              >
-                How it works?
-              </a>
-            </div>
           </div>
 
           {/* Medal Illustration */}

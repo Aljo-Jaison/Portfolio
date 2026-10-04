@@ -48,11 +48,11 @@ const specializations = [
 
 export default function SkillsAndTools() {
   return (
-    <section id="specialisations" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section id="specialisations" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Section Header matching When I Can Help & Are You Looking For */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               Design Specialisations
@@ -87,7 +87,7 @@ export default function SkillsAndTools() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-7 sm:p-8 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 flex flex-col justify-between group"
+                className="bg-white rounded-2xl p-5 sm:p-7 md:p-8 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 flex flex-col justify-between group"
               >
                 {/* Card Top: Icon & Role Badge */}
                 <div>

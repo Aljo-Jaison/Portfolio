@@ -8,11 +8,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-zinc-950 text-white py-14 border-t border-zinc-900">
-      <div className="site-container space-y-10">
+    <footer className="bg-zinc-950 text-white py-10 sm:py-12 md:py-14 border-t border-zinc-900">
+      <div className="site-container space-y-8 sm:space-y-10">
         
         {/* Top Section: Brand & Details on Left, Social Media Links on Right */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-10 border-b border-zinc-900">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 sm:pb-10 border-b border-zinc-900">
           
           {/* Left: Name, Logo, Full-width Subtext, and Available Worldwide below */}
           <div className="space-y-3.5 max-w-2xl">

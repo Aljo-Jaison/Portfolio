@@ -39,8 +39,8 @@ export default function SocialProof() {
   const loopedLogos = [...baseLogos, ...baseLogos];
 
   return (
-    <section className="py-12 bg-white border-t border-zinc-100 overflow-hidden select-none">
-      <div className="site-container text-center mb-8">
+    <section className="py-8 sm:py-10 md:py-12 bg-white border-t border-zinc-100 overflow-hidden select-none">
+      <div className="site-container text-center mb-5 sm:mb-6 md:mb-8">
         {/* Caption */}
         <p className="text-xs font-bold tracking-[0.22em] uppercase text-zinc-600">
           A FEW OF THE PLACES I WORKED

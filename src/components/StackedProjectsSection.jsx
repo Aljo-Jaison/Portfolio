@@ -70,11 +70,11 @@ const projectCards = [
 
 export default function StackedProjectsSection() {
   return (
-    <section id="works" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section id="works" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Section Header with Sketchpad Illustration matching reference */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-16">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               Products I've worked on
@@ -105,7 +105,7 @@ export default function StackedProjectsSection() {
         </div>
 
         {/* Scrollable Stack Container */}
-        <div className="relative pb-24">
+        <div className="relative pb-6 sm:pb-12 lg:pb-24">
           {projectCards.map((card, index) => (
             <div
               key={card.id}
@@ -113,9 +113,9 @@ export default function StackedProjectsSection() {
                 zIndex: index + 10,
                 '--card-top': `${80 + index * 42}px`,
               }}
-              className={`relative lg:sticky top-auto lg:top-[var(--card-top)] ${card.bgCard} rounded-2xl sm:rounded-3xl border border-zinc-200/50 shadow-[0_12px_36px_rgba(0,0,0,0.04)] mb-8 sm:mb-10 lg:mb-14 transition-all duration-300 overflow-hidden`}
+              className={`relative lg:sticky top-auto lg:top-[var(--card-top)] ${card.bgCard} rounded-2xl sm:rounded-3xl border border-zinc-200/50 shadow-[0_12px_36px_rgba(0,0,0,0.04)] mb-6 sm:mb-8 lg:mb-14 transition-all duration-300 overflow-hidden`}
             >
-              <div className="p-6 sm:p-10 lg:p-12">
+              <div className="p-5 sm:p-8 lg:p-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   
                   {/* Left Column: Details & Tags */}

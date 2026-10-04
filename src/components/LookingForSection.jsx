@@ -25,11 +25,11 @@ const lookingForCards = [
 
 export default function LookingForSection() {
   return (
-    <section className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Header with Cap & Glasses Illustration matching screenshot */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               Are you’re looking for..
@@ -62,7 +62,7 @@ export default function LookingForSection() {
           {lookingForCards.map((card, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-8 sm:p-10 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 space-y-5"
+              className="bg-white rounded-2xl p-5 sm:p-8 md:p-10 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 space-y-5"
             >
               {/* Illustration Icon */}
               <div className="h-12 flex items-center">

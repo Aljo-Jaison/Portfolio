@@ -3,7 +3,7 @@ import HeroIllustration from './HeroIllustration';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-white overflow-hidden">
+    <section id="home" className="relative pt-6 pb-10 sm:pt-8 sm:pb-14 md:pt-14 md:pb-24 bg-white overflow-hidden">
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           

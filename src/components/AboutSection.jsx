@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, Download } from 'lucide-react';
 
 const trustMetrics = [
   {
@@ -42,11 +42,11 @@ const careerMilestones = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+    <section id="about" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
         
         {/* Section Header matching When I Can Help & Are You Looking For */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8 sm:mb-10 md:mb-14">
           <div className="space-y-3 max-w-xl">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
               About Me
@@ -54,20 +54,29 @@ export default function AboutSection() {
             <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed tracking-normal">
               Passionate about clarity, design craft & user empowerment—turning complex design problems into intuitive, high-conversion products.
             </p>
-            <div className="pt-2 flex flex-wrap items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <a
                 href="#contact"
-                className="btn-secondary px-5 py-2.5 text-xs rounded-lg"
+                className="btn-secondary px-4 sm:px-5 py-2.5 text-xs rounded-lg"
               >
                 Let's Book a Free Call
+              </a>
+              <a
+                href="/resume.pdf"
+                download="Aljo_KJ_Resume.pdf"
+                className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-lg text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 border border-zinc-200/80 transition-all shadow-xs"
+                title="Download Resume"
+              >
+                <Download className="w-3.5 h-3.5 text-zinc-500" />
+                <span>Download Resume</span>
               </a>
               <a
                 href="https://www.linkedin.com/in/aljo-kj/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 border border-zinc-200/80 transition-all shadow-xs"
+                className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-lg text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 border border-zinc-200/80 transition-all shadow-xs"
               >
-                <span>Check My LinkedIn Profile</span>
+                <span>LinkedIn</span>
                 <span className="text-zinc-400">↗</span>
               </a>
             </div>
@@ -84,7 +93,7 @@ export default function AboutSection() {
         </div>
 
         {/* 1. Core Story Card */}
-        <div className="bg-white rounded-2xl p-7 sm:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 mb-8 space-y-6">
+        <div className="bg-white rounded-2xl p-5 sm:p-7 md:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 mb-6 sm:mb-8 space-y-6">
           <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-zinc-100">
             <div className="flex items-center gap-2.5">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
@@ -146,7 +155,7 @@ export default function AboutSection() {
         </div>
 
         {/* 3. Career Track Record & Milestones */}
-        <div className="bg-white rounded-2xl p-7 sm:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 space-y-6">
+        <div className="bg-white rounded-2xl p-5 sm:p-7 md:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 space-y-6">
           <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
             <div>
               <h3 className="text-base sm:text-lg font-bold text-zinc-950 tracking-tight">
