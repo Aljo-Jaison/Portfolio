@@ -1,7 +1,9 @@
 import React from 'react';
 import HeroIllustration from './HeroIllustration';
+import { useNavigation } from '../context/NavigationContext';
 
 export default function Hero() {
+  const { navigate } = useNavigation();
   return (
     <section id="home" className="relative pt-6 pb-10 sm:pt-8 sm:pb-14 md:pt-14 md:pb-24 bg-white overflow-hidden">
       <div className="site-container">
@@ -33,28 +35,31 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* The 3 CTAs requested by the user: See my works, About me, Contact me */}
+            {/* The 3 CTAs: See my works, About me, Contact me */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              {/* CTA 1: See my works (Primary - inverts to secondary on hover) */}
+              {/* CTA 1: See my works */}
               <a
-                href="#works"
-                className="btn-primary px-6 py-3 text-sm rounded-lg tracking-normal"
+                href="/works"
+                onClick={(e) => { e.preventDefault(); navigate('works'); }}
+                className="btn-primary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
               >
                 See my works
               </a>
 
-              {/* CTA 2: About me (Secondary - fills to primary on hover) */}
+              {/* CTA 2: About me */}
               <a
-                href="#about"
-                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal"
+                href="/about"
+                onClick={(e) => { e.preventDefault(); navigate('about'); }}
+                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
               >
                 About me
               </a>
 
-              {/* CTA 3: Contact me (Secondary - fills to primary on hover) */}
+              {/* CTA 3: Contact me */}
               <a
-                href="#contact"
-                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal"
+                href="/contact"
+                onClick={(e) => { e.preventDefault(); navigate('contact'); }}
+                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
               >
                 Contact me
               </a>

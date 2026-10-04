@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, Download } from 'lucide-react';
+import { useNavigation } from '../context/NavigationContext';
 
 const trustMetrics = [
   {
@@ -41,6 +42,8 @@ const careerMilestones = [
 ];
 
 export default function AboutSection() {
+  const { navigate } = useNavigation();
+
   return (
     <section id="about" className="py-12 sm:py-16 md:py-24 lg:py-28 bg-white border-t border-zinc-100">
       <div className="site-container">
@@ -56,8 +59,9 @@ export default function AboutSection() {
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <a
-                href="#contact"
-                className="btn-secondary px-4 sm:px-5 py-2.5 text-xs rounded-lg"
+                href="/contact"
+                onClick={(e) => { e.preventDefault(); navigate('contact'); }}
+                className="btn-secondary px-4 sm:px-5 py-2.5 text-xs rounded-lg cursor-pointer"
               >
                 Let's Book a Free Call
               </a>

@@ -1,63 +1,42 @@
 import React from 'react';
+import { NavigationProvider, useNavigation } from './context/NavigationContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SocialProof from './components/SocialProof';
-import JourneySection from './components/JourneySection';
-import StackedProjectsSection from './components/StackedProjectsSection';
-import DesignProcess from './components/DesignProcess';
-import WhenICanHelp from './components/WhenICanHelp';
-import LookingForSection from './components/LookingForSection';
-import SkillsAndTools from './components/SkillsAndTools';
-import AboutSection from './components/AboutSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import FloatingScrollToTop from './components/FloatingScrollToTop';
+import HomePage from './pages/HomePage';
+import WorksPage from './pages/WorksPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+
+function PageContent() {
+  const { currentPage } = useNavigation();
+
+  return (
+    <main className="flex-1">
+      {currentPage === 'home' && <HomePage />}
+      {currentPage === 'works' && <WorksPage />}
+      {currentPage === 'about' && <AboutPage />}
+      {currentPage === 'contact' && <ContactPage />}
+    </main>
+  );
+}
 
 export default function App() {
   return (
-    <div className="min-h-screen w-full bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
-      
-      {/* 1:1 Replicated Navbar */}
-      <Navbar />
+    <NavigationProvider>
+      <div className="min-h-screen w-full bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
+        {/* Universal Navbar across all pages */}
+        <Navbar />
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {/* Hero Section with 3 CTAs & exact Lottie illustration */}
-        <Hero />
+        {/* Dynamic Page Router */}
+        <PageContent />
 
-        {/* Client Logos Ribbon ("A FEW OF THE PLACES I WORKED") */}
-        <SocialProof />
+        {/* Universal Footer across all pages */}
+        <Footer />
 
-        {/* "My journey through design" with animated car & timeline */}
-        <JourneySection />
-
-        {/* "Products I've worked on" with Sticky Scroll Stack Cards */}
-        <StackedProjectsSection />
-
-        {/* "My Design Process" with 6 pastel steps & medal illustration */}
-        <DesignProcess />
-
-        {/* "When I can help?" with 2x2 grid & ringing clock illustration */}
-        <WhenICanHelp />
-
-        {/* "Are you’re looking for.." with 2x2 white cards & cap/glasses illustration */}
-        <LookingForSection />
-
-        {/* Capabilities & Toolchain Bento */}
-        <SkillsAndTools />
-
-        {/* About Section & Milestones */}
-        <AboutSection />
-
-        {/* Contact Section */}
-        <ContactSection />
-      </main>
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Return To Top CTA */}
-      <FloatingScrollToTop />
-    </div>
+        {/* Floating Return To Top CTA */}
+        <FloatingScrollToTop />
+      </div>
+    </NavigationProvider>
   );
 }

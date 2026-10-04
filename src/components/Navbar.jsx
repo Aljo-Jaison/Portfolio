@@ -1,43 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, Download } from 'lucide-react';
+import { useNavigation } from '../context/NavigationContext';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolledPastHero, setScrolledPastHero] = useState(false);
-  const [inAboutSection, setInAboutSection] = useState(false);
+  const { currentPage, navigate } = useNavigation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroEl = document.getElementById('home');
-      if (heroEl) {
-        const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
-        // Trigger when scrolled near the end of or past the hero section
-        setScrolledPastHero(window.scrollY > (heroBottom - 120));
-      } else {
-        setScrolledPastHero(window.scrollY > 400);
-      }
+  const navLinks = [
+    { id: 'home', label: 'Home' },
+    { id: 'works', label: 'My Works' },
+    { id: 'about', label: 'About me' },
+    { id: 'contact', label: 'Contact' },
+  ];
 
-      // Check if user is currently inside the About section
-      const aboutEl = document.getElementById('about');
-      if (aboutEl) {
-        const rect = aboutEl.getBoundingClientRect();
-        // Active when About section is occupying the viewport
-        setInAboutSection(rect.top <= 140 && rect.bottom >= 100);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleNavClick = (pageId, e) => {
+    if (e) e.preventDefault();
+    navigate(pageId);
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-white/75 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
-      <div className="site-container py-4 flex items-center justify-between">
+    <header className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
+      <div className="site-container py-3.5 sm:py-4 flex items-center justify-between">
         
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 group shrink-0" aria-label="Aljo K J - Home">
+        <a 
+          href="/" 
+          onClick={(e) => handleNavClick('home', e)}
+          className="flex items-center gap-2 group shrink-0" 
+          aria-label="Aljo K J - Home"
+        >
           <img 
             src="/assets/logo-black.png" 
             alt="Aljo K J Logo" 
@@ -46,41 +38,33 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-[14px] sm:text-[15px]">
-          <a 
-            href="#home" 
-            className="font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
-          >
-            Home
-          </a>
-          <a 
-            href="#works" 
-            className="font-medium text-zinc-600 hover:text-zinc-950 transition-colors"
-          >
-            My Works
-          </a>
+        <nav className="hidden md:flex items-center gap-6 sm:gap-7 text-[14px] sm:text-[15px]">
+          {navLinks.map((link) => {
+            const isActive = currentPage === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.id === 'home' ? '/' : `/${link.id}`}
+                onClick={(e) => handleNavClick(link.id, e)}
+                className={`transition-colors py-1 relative ${
+                  isActive 
+                    ? 'font-bold text-zinc-950' 
+                    : 'font-medium text-zinc-600 hover:text-zinc-950'
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
+                )}
+              </a>
+            );
+          })}
 
-          {/* Dynamic "About me" link that smoothly appears when scrolling past Hero */}
+          {/* Resume Download Button (Hidden when viewing About page per user preference) */}
           <div 
             className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
-              scrolledPastHero 
-                ? 'max-w-[120px] opacity-100 translate-x-0' 
-                : 'max-w-0 opacity-0 -translate-x-3 pointer-events-none'
-            }`}
-          >
-            <a 
-              href="#about" 
-              className="font-medium text-zinc-600 hover:text-zinc-950 transition-colors whitespace-nowrap"
-            >
-              About me
-            </a>
-          </div>
-
-          {/* Resume Download Button (Hidden when viewing About section) */}
-          <div 
-            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
-              !inAboutSection 
-                ? 'max-w-[130px] opacity-100 scale-100' 
+              currentPage !== 'about' 
+                ? 'max-w-[130px] opacity-100 scale-100 ml-1' 
                 : 'max-w-0 opacity-0 scale-95 pointer-events-none'
             }`}
           >
@@ -95,43 +79,33 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Dynamic "Contact me" CTA Button that smoothly appears when scrolling past Hero */}
-          <div 
-            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
-              scrolledPastHero 
-                ? 'max-w-[160px] opacity-100 scale-100 ml-1' 
-                : 'max-w-0 opacity-0 scale-95 pointer-events-none ml-0'
-            }`}
-          >
+          {/* Desktop "Contact me" CTA Button */}
+          {currentPage !== 'contact' && (
             <a
-              href="#contact"
-              className="btn-primary px-4 py-2 text-xs sm:text-sm rounded-lg whitespace-nowrap"
-            >
-              Contact me
-            </a>
-          </div>
-        </nav>
-
-        {/* Mobile Navigation controls */}
-        <div className="md:hidden flex items-center gap-2">
-          {/* Mobile dynamic Contact CTA when scrolled past Hero */}
-          {scrolledPastHero && (
-            <a
-              href="#contact"
-              className="btn-primary px-3 py-1.5 text-xs rounded-lg"
+              href="/contact"
+              onClick={(e) => handleNavClick('contact', e)}
+              className="btn-primary px-4 py-2 text-xs sm:text-sm rounded-lg whitespace-nowrap ml-1 cursor-pointer"
             >
               Contact me
             </a>
           )}
+        </nav>
 
-          {/* Mobile Resume Button (Hidden when viewing About section) */}
-          <div 
-            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
-              !inAboutSection 
-                ? 'max-w-[110px] opacity-100 scale-100' 
-                : 'max-w-0 opacity-0 scale-95 pointer-events-none'
-            }`}
-          >
+        {/* Mobile Navigation controls */}
+        <div className="md:hidden flex items-center gap-2">
+          {/* Mobile dynamic Contact CTA when not on contact page */}
+          {currentPage !== 'contact' && (
+            <a
+              href="/contact"
+              onClick={(e) => handleNavClick('contact', e)}
+              className="btn-primary px-3 py-1.5 text-xs rounded-lg cursor-pointer"
+            >
+              Contact
+            </a>
+          )}
+
+          {/* Mobile Resume Button (Hidden when viewing About page) */}
+          {currentPage !== 'about' && (
             <a
               href="/resume.pdf"
               download="Aljo_KJ_Resume.pdf"
@@ -141,7 +115,7 @@ export default function Navbar() {
               <Download className="w-3.5 h-3.5 text-zinc-500" />
               <span>Resume</span>
             </a>
-          </div>
+          )}
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -156,46 +130,46 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown with matching translucent glassmorphism */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-zinc-200/60 px-6 py-5 space-y-4 text-sm animate-in fade-in duration-150">
-          <a 
-            href="#home" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block font-medium text-zinc-800 hover:text-zinc-950 py-1"
-          >
-            Home
-          </a>
-          <a 
-            href="#works" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block font-medium text-zinc-800 hover:text-zinc-950 py-1"
-          >
-            My Works
-          </a>
-          <a 
-            href="#about" 
-            onClick={() => setMobileMenuOpen(false)}
-            className="block font-medium text-zinc-800 hover:text-zinc-950 py-1"
-          >
-            About me
-          </a>
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-zinc-200/60 px-6 py-5 space-y-3.5 text-sm animate-in fade-in duration-150">
+          {navLinks.map((link) => {
+            const isActive = currentPage === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.id === 'home' ? '/' : `/${link.id}`}
+                onClick={(e) => handleNavClick(link.id, e)}
+                className={`block py-1.5 transition-colors cursor-pointer ${
+                  isActive 
+                    ? 'font-bold text-zinc-950' 
+                    : 'font-medium text-zinc-700 hover:text-zinc-950'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
+
           <a 
             href="/resume.pdf" 
             download="Aljo_KJ_Resume.pdf"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-medium text-zinc-800 hover:text-zinc-950 py-1"
+            className="flex items-center justify-between font-medium text-zinc-700 hover:text-zinc-950 py-1.5"
           >
             <span>Resume</span>
             <Download className="w-4 h-4 text-zinc-500" />
           </a>
-          <div className="pt-2 border-t border-zinc-100">
-            <a
-              href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-primary w-full text-center px-4 py-2.5 text-xs rounded-lg"
-            >
-              Contact me
-            </a>
-          </div>
+
+          {currentPage !== 'contact' && (
+            <div className="pt-2 border-t border-zinc-100">
+              <a
+                href="/contact"
+                onClick={(e) => handleNavClick('contact', e)}
+                className="btn-primary w-full text-center px-4 py-2.5 text-xs rounded-lg block cursor-pointer"
+              >
+                Contact me
+              </a>
+            </div>
+          )}
         </div>
       )}
     </header>

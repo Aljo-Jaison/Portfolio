@@ -1,10 +1,18 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import { useNavigation } from '../context/NavigationContext';
 
 export default function Footer() {
+  const { navigate } = useNavigation();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLinkClick = (pageId, options = {}, e) => {
+    if (e) e.preventDefault();
+    navigate(pageId, options);
   };
 
   return (
@@ -16,16 +24,20 @@ export default function Footer() {
           
           {/* Left: Name, Logo, Full-width Subtext, and Available Worldwide below */}
           <div className="space-y-3.5 max-w-2xl">
-            <div className="flex items-center gap-3">
+            <button 
+              type="button"
+              onClick={(e) => handleLinkClick('home', {}, e)}
+              className="flex items-center gap-3 text-left cursor-pointer group"
+            >
               <img 
                 src="/assets/logo-white.png" 
                 alt="Aljo K J Logo" 
-                className="h-7 sm:h-8 w-auto object-contain"
+                className="h-7 sm:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
               <span className="font-bold text-base sm:text-lg text-white tracking-tight">
                 {personalInfo.name}
               </span>
-            </div>
+            </button>
 
             {/* Filled subtext without artificial 2-line constraint */}
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
@@ -47,26 +59,30 @@ export default function Footer() {
           {/* Right: Navigation Links (Works, Process, About, Contact) + Scroll to top button */}
           <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-xs sm:text-sm text-zinc-400 font-medium shrink-0">
             <a 
-              href="#works" 
-              className="hover:text-white transition-colors py-1"
+              href="/works" 
+              onClick={(e) => handleLinkClick('works', {}, e)}
+              className="hover:text-white transition-colors py-1 cursor-pointer"
             >
               Works
             </a>
             <a 
-              href="#process" 
-              className="hover:text-white transition-colors py-1"
+              href="/works#process" 
+              onClick={(e) => handleLinkClick('works', { targetId: 'process' }, e)}
+              className="hover:text-white transition-colors py-1 cursor-pointer"
             >
               Process
             </a>
             <a 
-              href="#about" 
-              className="hover:text-white transition-colors py-1"
+              href="/about" 
+              onClick={(e) => handleLinkClick('about', {}, e)}
+              className="hover:text-white transition-colors py-1 cursor-pointer"
             >
               About
             </a>
             <a 
-              href="#contact" 
-              className="hover:text-white transition-colors py-1"
+              href="/contact" 
+              onClick={(e) => handleLinkClick('contact', {}, e)}
+              className="hover:text-white transition-colors py-1 cursor-pointer"
             >
               Contact
             </a>
