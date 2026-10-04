@@ -28,11 +28,11 @@ export default function Navbar() {
       <div className="site-container py-4 flex items-center justify-between">
         
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-2 group shrink-0">
+        <a href="#home" className="flex items-center gap-2 group shrink-0" aria-label="Aljo K J - Home">
           <img 
-            src="/assets/logo.svg" 
+            src="/assets/logo-black.png" 
             alt="Aljo K J Logo" 
-            className="h-7 sm:h-8 w-auto object-contain"
+            className="h-7 sm:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
         </a>
 
