@@ -1,0 +1,5 @@
+# Robots.txt for Aljo K J Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-aljo-jaison.vercel.app/sitemap.xml

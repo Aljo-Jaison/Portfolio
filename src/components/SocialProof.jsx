@@ -26,6 +26,11 @@ const clientLogos = [
     file: '/assets/clients/scify.png',
     url: 'https://www.linkedin.com/company/scify-technologies-pvt-ltd/',
   },
+  {
+    name: 'TUTOZ',
+    file: '/assets/clients/tutoz.png',
+    url: 'https://tutoz.in/',
+  },
 ];
 
 export default function SocialProof() {

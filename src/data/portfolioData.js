@@ -23,88 +23,56 @@ export const personalInfo = {
 
 export const projects = [
   {
-    id: "pulse-saas",
-    title: "PulseFlow AI",
-    category: "B2B SaaS Platform",
-    tagline: "Enterprise workflow automation for data teams",
-    description: "Led end-to-end product design from zero to launch. Redesigned multi-tenant permissions, automated trigger builders, and consolidated 14 disjointed workflows into a single drag-and-drop canvas.",
-    metrics: [
-      { label: "Activation Rate", value: "+54%" },
-      { label: "Weekly Retention", value: "+38%" }
-    ],
-    tags: ["Figma", "Design System", "Complex UX", "SaaS"],
-    liveUrl: "https://example.com/pulseflow",
-    color: "#6366F1",
+    id: "columsprout",
+    title: "Columsprout AI",
+    category: "SaaS eCommerce",
+    tagline: "AI Agents for eCommerce Growth",
+    description: "Transforming customer engagement, proactive storefront assistance, and sales conversions for modern online brands with autonomous on-site AI agents.",
+    tags: ["AI Agents", "eCommerce Growth", "SaaS Platform", "Storefront UI"],
+    liveUrl: "https://columsprout.ai/",
+    color: "#4F46E5",
     bgColor: "bg-indigo-50/50",
-    mockupType: "dashboard",
-    highlights: [
-      "Engineered an 80+ component accessible design system in Figma",
-      "Cut new user onboarding friction from 14 minutes down to 3.8 minutes",
-      "Conducted 24 moderated user interviews with DevOps leads"
-    ]
+    mockupType: "saas",
+    logoSrc: "/assets/clients/columsprout.png",
   },
   {
-    id: "strata-fintech",
-    title: "Strata Pay",
-    category: "Fintech & Mobile App",
-    tagline: "Cross-border treasury & instant payments for creators",
-    description: "Designed an iOS and Web application allowing remote agencies and creators to receive multi-currency payouts with zero FX fee surprises.",
-    metrics: [
-      { label: "Monthly Volume", value: "$12M+" },
-      { label: "App Store Rating", value: "4.9 ★" }
-    ],
-    tags: ["Mobile UX", "iOS / Android", "Fintech", "Micro-interactions"],
-    liveUrl: "https://example.com/strata",
-    color: "#10B981",
-    bgColor: "bg-emerald-50/50",
+    id: "tutoz",
+    title: "Tutoz",
+    category: "EdTech & AI Learning",
+    tagline: "Where Every Doubt Leads to Discovery",
+    description: "India’s first AI-powered learning app developed in collaboration with IIT Palakkad. Delivering 24/7 personalized tutoring, adaptive STEM explanations, and interactive doubt resolution.",
+    tags: ["EdTech", "AI Learning App", "IIT Palakkad", "STEM Education"],
+    liveUrl: "https://tutoz.in/",
+    color: "#0284C7",
+    bgColor: "bg-sky-50/50",
     mockupType: "mobile",
-    highlights: [
-      "Streamlined KYC verification flow with 92% first-try pass rate",
-      "Interactive fluid haptic animations and gesture-driven card interactions",
-      "Seamless light and dark mode native mobile tokens"
-    ]
+    logoSrc: "/assets/clients/tutoz.png",
   },
   {
-    id: "nordic-commerce",
-    title: "Kōhī Artisan",
-    category: "E-Commerce & Branding",
-    tagline: "Direct-to-consumer artisanal coffee subscription platform",
-    description: "Crafted a bespoke e-commerce buying experience featuring interactive flavor profiling, dynamic bundle builders, and a 1-click subscription management portal.",
-    metrics: [
-      { label: "Checkout Conversion", value: "+46%" },
-      { label: "Average Order Value", value: "+32%" }
-    ],
-    tags: ["E-Commerce", "Conversion Rate Opt", "Web Design", "Framer"],
-    liveUrl: "https://example.com/kohi",
-    color: "#F59E0B",
+    id: "ceknpy",
+    title: "College of Engineering Karunagappally",
+    category: "Higher Ed & Institutional Web",
+    tagline: "Official Institutional Campus Web Portal",
+    description: "Redesigned the official digital campus portal for CEK (IHRD, Govt. of Kerala), centralizing academic departments, admissions, placements, and student resources into an accessible, responsive experience.",
+    tags: ["Higher Education", "Institutional Portal", "UI/UX Redesign", "WCAG 2.2 AA"],
+    liveUrl: "https://ceknpy.vercel.app/",
+    color: "#16A34A",
+    bgColor: "bg-emerald-50/50",
+    mockupType: "institutional",
+    logoSrc: "/assets/clients/ceknpy.png",
+  },
+  {
+    id: "mkskab",
+    title: "MK SKAB General Constructions",
+    category: "Engineering & Industrial Contracting",
+    tagline: "Civil Engineering, Heavy Equipment & Contracting KSA",
+    description: "Corporate web presence for a premier industrial contracting group in Saudi Arabia, highlighting heavy machinery rental fleets, infrastructure engineering, and turn-key industrial services.",
+    tags: ["Industrial Contracting", "Heavy Equipment Fleet", "Civil Engineering", "Corporate Web"],
+    liveUrl: "https://www.mkskab.com/",
+    color: "#B45309",
     bgColor: "bg-amber-50/50",
-    mockupType: "ecommerce",
-    highlights: [
-      "Tailored quiz algorithm guiding users to their bean taste profile",
-      "Shopify headless architecture integration with micro-animations",
-      "Reduced cart abandonment by optimizing one-page checkout"
-    ]
-  },
-  {
-    id: "aura-design-system",
-    title: "Aura Tokens",
-    category: "Design System & Tools",
-    tagline: "Multi-brand design system powering 6 enterprise applications",
-    description: "Built and documented a comprehensive tokenized design system used daily by 45+ designers and engineers. WCAG 2.1 AAA compliant with automated Figma-to-code pipelines.",
-    metrics: [
-      { label: "Design Debt", value: "-60%" },
-      { label: "Feature Velocity", value: "2.4x" }
-    ],
-    tags: ["Design Systems", "Tokens", "WCAG 2.1", "Developer Handoff"],
-    liveUrl: "https://example.com/aura",
-    color: "#06B6D4",
-    bgColor: "bg-cyan-50/50",
-    mockupType: "system",
-    highlights: [
-      "Comprehensive typography, color, spacing, and elevation token library",
-      "120+ interactive Figma components with variable bindings and states",
-      "Shared Storybook integration with React code parity"
-    ]
+    mockupType: "engineering",
+    logoSrc: "/assets/clients/mkskab.png",
   }
 ];
 
