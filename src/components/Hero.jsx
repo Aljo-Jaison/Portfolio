@@ -4,7 +4,7 @@ import HeroIllustration from './HeroIllustration';
 export default function Hero() {
   return (
     <section id="home" className="relative pt-8 pb-16 md:pt-14 md:pb-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+      <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           
           {/* Left Column: Content & CTAs */}
@@ -24,7 +24,7 @@ export default function Hero() {
                 <span>👋 Hi! I'm Aljo K J & your go-to</span>
               </h4>
               
-              <h1 className="text-5xl sm:text-6xl font-black text-zinc-950 tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-zinc-950 tracking-tight leading-[1.08]">
                 Product Designer
               </h1>
               

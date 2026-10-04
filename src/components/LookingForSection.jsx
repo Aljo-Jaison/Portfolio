@@ -26,7 +26,7 @@ const lookingForCards = [
 export default function LookingForSection() {
   return (
     <section className="py-20 md:py-28 bg-white border-t border-zinc-100">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Header with Cap & Glasses Illustration matching screenshot */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
@@ -48,11 +48,11 @@ export default function LookingForSection() {
           </div>
 
           {/* Cap, Glasses & Notepad Illustration */}
-          <div className="hidden md:block shrink-0">
+          <div className="hidden md:flex items-center justify-center shrink-0 w-28 sm:w-32 md:w-36 h-24">
             <img 
               src="/assets/lookingfor/hat-glasses.webp" 
               alt="Design Essentials" 
-              className="w-24 sm:w-28 h-auto object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>

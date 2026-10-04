@@ -1,0 +1,34 @@
+<svg width="120" height="110" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Looping flight path / contrail from bottom-left -->
+  <path d="M14 92C18 78 28 68 40 76C52 84 46 98 32 94C20 90 24 64 48 52L72 40" stroke="#18181B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3.5 3.5"/>
+
+  <!-- Paper Airplane Body -->
+  <g transform="translate(10, -4)">
+    <!-- Main wings -->
+    <path d="M96 22L46 54L64 68L96 22Z" fill="#FFFFFF" stroke="#18181B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Center fold spine -->
+    <path d="M96 22L64 68L68 84L76 68L96 22Z" fill="#FFFFFF" stroke="#18181B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Inner wing flap crease -->
+    <path d="M46 54L76 68" stroke="#18181B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Mini fold tuck -->
+    <path d="M64 68L68 76" stroke="#18181B" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Floating Letter / Mini Envelope near bottom-right -->
+  <g transform="translate(74, 62) rotate(-8)">
+    <rect x="0" y="0" width="30" height="20" rx="3" fill="#FFFFFF" stroke="#18181B" stroke-width="2.4"/>
+    <path d="M0 0L15 11L30 0" stroke="#18181B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Stamp in corner -->
+    <rect x="21" y="3" width="6" height="7" rx="1" fill="#18181B"/>
+  </g>
+
+  <!-- Hand-drawn sparkles / stars (matching Ashik Prottoy aesthetic) -->
+  <!-- Top Right Sparkle Star -->
+  <path d="M106 12L108 17L114 18.5L108 20L106 25L104 20L98 18.5L104 17Z" fill="#18181B"/>
+  <!-- Top Left Star -->
+  <path d="M26 22L27.5 25.5L31 27L27.5 28.5L26 32L24.5 28.5L21 27L24.5 25.5Z" fill="#18181B"/>
+  <!-- Middle Sparkle Dot -->
+  <circle cx="92" cy="54" r="2" fill="#18181B"/>
+  <!-- Bottom Left Mini Star -->
+  <path d="M12 48L13 50.5L15.5 51.5L13 52.5L12 55L11 52.5L8.5 51.5L11 50.5Z" fill="#18181B"/>
+</svg>

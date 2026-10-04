@@ -79,7 +79,7 @@ export default function JourneySection() {
 
   return (
     <section id="journey" className="py-20 md:py-28 bg-white border-t border-zinc-100 overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Animated Car over Bumps / Forest */}
         <div className="mb-4">

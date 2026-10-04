@@ -49,7 +49,7 @@ const specializations = [
 export default function SkillsAndTools() {
   return (
     <section id="specialisations" className="py-20 md:py-28 bg-white border-t border-zinc-100">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Section Header matching When I Can Help & Are You Looking For */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
@@ -58,7 +58,7 @@ export default function SkillsAndTools() {
               Design Specialisations
             </h2>
             <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed tracking-normal">
-              Honed across 1+ years of internship and design experience—from strategic UX discovery to design system architecture and code-level developer handoff.
+              Honed across 1+ years of product design experience—from strategic UX discovery to design system architecture and code-level developer handoff.
             </p>
             <div className="pt-2">
               <a
@@ -71,11 +71,11 @@ export default function SkillsAndTools() {
           </div>
 
           {/* Header Illustration */}
-          <div className="hidden md:block shrink-0">
+          <div className="hidden md:flex items-center justify-center shrink-0 w-28 sm:w-32 md:w-36 h-24">
             <img 
-              src="/assets/sections/design-tools.svg" 
-              alt="Design Tools & Specialisations" 
-              className="w-24 sm:w-28 h-auto object-contain"
+              src="/assets/sections/specialisations-tools.png" 
+              alt="Design Specialisations" 
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function SkillsAndTools() {
                       )}
                     </div>
 
-                    <span className="text-[11px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-600">
+                    <span className="text-xs font-bold tracking-wide uppercase px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/80 text-zinc-700">
                       {spec.roleTag}
                     </span>
                   </div>

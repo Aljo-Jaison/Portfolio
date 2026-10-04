@@ -14,7 +14,7 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
+    <div className="min-h-screen w-full bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
       
       {/* 1:1 Replicated Navbar */}
       <Navbar />

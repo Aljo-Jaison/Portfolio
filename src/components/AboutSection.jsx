@@ -14,7 +14,7 @@ const trustMetrics = [
     isBadge: false,
     tag: 'Experience',
     title: '1+ Years Experience',
-    description: 'Hands-on internship background shipping clean, user-centered digital products.',
+    description: 'Hands-on design background shipping clean, user-centered digital products.',
   },
   {
     iconSrc: '/assets/journey/cup.svg',
@@ -34,7 +34,7 @@ const careerMilestones = [
   },
   {
     year: "May '25 – Sep '25",
-    role: 'UI/UX Designer Intern',
+    role: 'UI/UX Designer',
     company: 'SATCARD - IIT PALAKKAD',
     description: 'Designed mobile and web experiences (TUTOZ learning platform), conducted usability testing with 15+ users, and collaborated closely with engineering teams for production-ready handoff.',
   },
@@ -43,7 +43,7 @@ const careerMilestones = [
 export default function AboutSection() {
   return (
     <section id="about" className="py-20 md:py-28 bg-white border-t border-zinc-100">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Section Header matching When I Can Help & Are You Looking For */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
@@ -73,12 +73,12 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Designer Accessories Illustration */}
-          <div className="hidden md:block shrink-0">
+          {/* Designer Portrait Line Art Illustration */}
+          <div className="hidden md:flex items-center justify-center shrink-0 w-36 sm:w-44 md:w-48 h-28 sm:h-36">
             <img 
-              src="/assets/lookingfor/hat-glasses.webp" 
-              alt="Designer Essentials" 
-              className="w-24 sm:w-28 h-auto object-contain opacity-90"
+              src="/assets/sections/about-designer.png" 
+              alt="Aljo K J Designer Portrait" 
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
@@ -94,13 +94,13 @@ export default function AboutSection() {
             </div>
             <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-600">
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>1+ Years Internship & Design Experience</span>
+              <span>1+ Years Product Design Experience</span>
             </div>
           </div>
 
           <div className="space-y-4 text-xs sm:text-sm text-zinc-600 leading-relaxed tracking-normal">
             <p>
-              Over the past 1+ years of hands-on internship experience, I’ve collaborated with founders, product teams, and developers to transform ambitious concepts into usable, well-crafted products that solve real problems.
+              Over the past 1+ years of hands-on design experience, I’ve collaborated with founders, product teams, and developers to transform ambitious concepts into usable, well-crafted products that solve real problems.
             </p>
             <p>
               I believe great design isn't about unnecessary decoration or bloated animations. It’s about reducing cognitive friction, clarifying navigation, and giving users an effortless path to their goals.
@@ -127,7 +127,7 @@ export default function AboutSection() {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-[11px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-600">
+                  <span className="text-xs font-bold tracking-wide uppercase px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-700">
                     {item.tag}
                   </span>
                 </div>
@@ -136,7 +136,7 @@ export default function AboutSection() {
                   <h3 className="text-base font-bold text-zinc-950 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-zinc-500 leading-relaxed tracking-normal">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed tracking-normal">
                     {item.description}
                   </p>
                 </div>
@@ -153,7 +153,7 @@ export default function AboutSection() {
                 Career Track Record
               </h3>
               <p className="text-xs text-zinc-500 mt-0.5">
-                Key internship & project roles
+                Key roles & track record
               </p>
             </div>
             <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-600">
@@ -165,37 +165,39 @@ export default function AboutSection() {
             {careerMilestones.map((milestone, idx) => (
               <div 
                 key={idx} 
-                className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 border-b border-zinc-100 last:border-b-0 last:pb-0"
+                className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-zinc-100 last:border-b-0 last:pb-0"
               >
-                <div className="space-y-1 sm:max-w-md">
+                <div className="space-y-1.5 flex-1 pr-0 sm:pr-8">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
-                    <h4 className="text-sm sm:text-[15px] font-bold text-zinc-950 tracking-tight">
+                    <h4 className="text-sm sm:text-base font-bold text-zinc-950 tracking-tight">
                       {milestone.role}
                     </h4>
                   </div>
                   <div className="text-xs font-medium text-emerald-700 pl-4">
                     {milestone.company}
                   </div>
-                  <p className="text-xs text-zinc-500 leading-relaxed tracking-normal pl-4 pt-0.5">
+                  <p className="text-sm sm:text-base text-zinc-600 leading-relaxed tracking-normal pl-4 pt-1">
                     {milestone.description}
                   </p>
                 </div>
-                <div className="text-xs font-mono text-zinc-400 pl-4 sm:pl-0 sm:shrink-0">
-                  {milestone.year}
+                <div className="text-xs font-mono text-zinc-500 pl-4 sm:pl-0 sm:shrink-0 pt-0.5 sm:text-right">
+                  <span className="inline-block px-3 py-1.5 rounded-md bg-zinc-50 border border-zinc-200/80 text-xs font-semibold text-zinc-700">
+                    {milestone.year}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="pt-4 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-zinc-500">
+          <div className="pt-4 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-zinc-600">
             <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
+              <Check className="w-4 h-4 text-emerald-600 stroke-[3]" />
               Case Studies & References available upon request
             </span>
             <a
               href="#contact"
-              className="font-semibold text-zinc-950 hover:underline"
+              className="font-bold text-zinc-950 hover:underline"
             >
               Inquire for details →
             </a>

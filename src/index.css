@@ -13,14 +13,29 @@
 }
 
 @layer components {
-  /* Primary Button: Solid black default -> inverts to secondary outline on hover */
+  /* Primary Button: Solid black default */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-zinc-950 text-white border border-zinc-950 font-semibold transition-all duration-200 shadow-sm hover:bg-white hover:text-zinc-950 hover:border-zinc-300 hover:shadow cursor-pointer;
+    @apply inline-flex items-center justify-center bg-zinc-950 text-white border border-zinc-950 font-semibold transition-all duration-200 shadow-sm cursor-pointer;
   }
 
-  /* Secondary Button: Clean white outline default -> fills to primary solid black on hover */
+  /* Secondary Button: Clean white outline default */
   .btn-secondary {
-    @apply inline-flex items-center justify-center bg-white text-zinc-900 border border-zinc-200 font-semibold transition-all duration-200 shadow-sm hover:bg-zinc-950 hover:text-white hover:border-zinc-950 hover:shadow cursor-pointer;
+    @apply inline-flex items-center justify-center bg-white text-zinc-900 border border-zinc-200 font-semibold transition-all duration-200 shadow-sm cursor-pointer;
+  }
+
+  /* Hover states only for devices that support mouse pointer hover (never sticky on mobile touch) */
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      @apply bg-white text-zinc-950 border-zinc-300 shadow;
+    }
+    .btn-secondary:hover {
+      @apply bg-zinc-950 text-white border-zinc-950 shadow;
+    }
+  }
+
+  /* Fluid responsive section container that scales gracefully across all viewports */
+  .site-container {
+    @apply w-full max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12;
   }
 }
 

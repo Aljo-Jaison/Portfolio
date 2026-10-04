@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-zinc-950 text-white py-14 border-t border-zinc-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div className="site-container space-y-10">
         
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-10 border-b border-zinc-800/80">
           <div>

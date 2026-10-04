@@ -43,7 +43,7 @@ const processSteps = [
 export default function DesignProcess() {
   return (
     <section id="process" className="py-20 md:py-28 bg-white border-t border-zinc-100">
-      <div className="max-w-4xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Header with Medal Ribbon Illustration matching screenshot */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
@@ -65,11 +65,11 @@ export default function DesignProcess() {
           </div>
 
           {/* Medal Illustration */}
-          <div className="hidden md:block shrink-0">
+          <div className="hidden md:flex items-center justify-center shrink-0 w-24 sm:w-28 h-20 sm:h-24">
             <img 
               src="/assets/sections/medal-icon.svg" 
               alt="Design Process Medal" 
-              className="w-24 sm:w-28 h-auto object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function DesignProcess() {
               {/* Badge Pill */}
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 border border-zinc-200/60 shadow-2xs">
                 <Sparkles className="w-3 h-3 text-zinc-400" />
-                <span className="text-[11px] font-semibold text-zinc-600">
+                <span className="text-xs font-bold text-zinc-700">
                   {step.step}
                 </span>
               </div>

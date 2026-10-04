@@ -11,7 +11,7 @@ export const personalInfo = {
     behance: "https://www.behance.net/aljojaison",
     github: "https://github.com/Aljo-Jaison",
     pinterest: "https://in.pinterest.com/Aljo_Jaison/",
-    calendly: "https://calendly.com/aljojaisonk1",
+    calendly: "https://calendly.com/aljojaisonk1/aljo-jaison-meeting",
   },
   stats: [
     { label: "Years Experience", value: "1+" },

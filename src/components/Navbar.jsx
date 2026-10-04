@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 w-full z-50 bg-white/75 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-4 flex items-center justify-between">
+      <div className="site-container py-4 flex items-center justify-between">
         
         {/* Brand Logo */}
         <a href="#home" className="flex items-center gap-2 group shrink-0">

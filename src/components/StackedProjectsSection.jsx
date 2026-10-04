@@ -87,7 +87,7 @@ const projectCards = [
 export default function StackedProjectsSection() {
   return (
     <section id="works" className="py-20 md:py-28 bg-white border-t border-zinc-100">
-      <div className="max-w-5xl mx-auto px-6 sm:px-10">
+      <div className="site-container">
         
         {/* Section Header with Sketchpad Illustration matching reference */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
@@ -111,11 +111,11 @@ export default function StackedProjectsSection() {
           </div>
 
           {/* Sketchpad / Notepad Illustration */}
-          <div className="hidden md:block shrink-0">
+          <div className="hidden md:flex items-center justify-center shrink-0 w-24 sm:w-28 h-20 sm:h-24">
             <img 
               src="/assets/cards/notepad.webp" 
               alt="Design Notepad" 
-              className="w-28 sm:w-32 h-auto object-contain"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
@@ -126,10 +126,10 @@ export default function StackedProjectsSection() {
             <div
               key={card.id}
               style={{
-                top: `${80 + index * 42}px`,
                 zIndex: index + 10,
+                '--card-top': `${80 + index * 42}px`,
               }}
-              className={`sticky ${card.bgCard} rounded-3xl border border-zinc-200/50 shadow-[0_12px_36px_rgba(0,0,0,0.04)] mb-14 transition-all duration-300 overflow-hidden`}
+              className={`relative lg:sticky top-auto lg:top-[var(--card-top)] ${card.bgCard} rounded-2xl sm:rounded-3xl border border-zinc-200/50 shadow-[0_12px_36px_rgba(0,0,0,0.04)] mb-8 sm:mb-10 lg:mb-14 transition-all duration-300 overflow-hidden`}
             >
               <div className="p-6 sm:p-10 lg:p-12">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -157,7 +157,7 @@ export default function StackedProjectsSection() {
                     {/* Key Metrics Row */}
                     <div className="grid grid-cols-2 gap-6 pt-2">
                       <div>
-                        <div className="text-[11px] sm:text-xs text-zinc-500 font-medium">
+                        <div className="text-xs sm:text-sm text-zinc-600 font-semibold">
                           Customer Acquisition
                         </div>
                         <div className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mt-0.5">
@@ -166,7 +166,7 @@ export default function StackedProjectsSection() {
                       </div>
 
                       <div>
-                        <div className="text-[11px] sm:text-xs text-zinc-500 font-medium">
+                        <div className="text-xs sm:text-sm text-zinc-600 font-semibold">
                           Retention Growth
                         </div>
                         <div className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight mt-0.5">
