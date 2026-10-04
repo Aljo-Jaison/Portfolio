@@ -11,6 +11,7 @@ import SkillsAndTools from './components/SkillsAndTools';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import FloatingScrollToTop from './components/FloatingScrollToTop';
 
 export default function App() {
   return (
@@ -54,6 +55,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Floating Return To Top CTA */}
+      <FloatingScrollToTop />
     </div>
   );
 }

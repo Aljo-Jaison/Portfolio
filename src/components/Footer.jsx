@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-zinc-950 text-white py-10 sm:py-12 md:py-14 border-t border-zinc-900">
+    <footer id="footer" className="bg-zinc-950 text-white py-10 sm:py-12 md:py-14 border-t border-zinc-900">
       <div className="site-container space-y-8 sm:space-y-10">
         
         {/* Top Section: Brand & Details on Left, Social Media Links on Right */}
