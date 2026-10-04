@@ -57,7 +57,7 @@ export default function DesignProcess() {
             <div className="pt-2">
               <a
                 href="#how-it-works"
-                className="inline-flex items-center px-5 py-2.5 rounded-lg bg-zinc-950 text-white text-xs font-semibold hover:bg-zinc-800 transition-colors shadow-xs"
+                className="btn-primary px-5 py-2.5 text-xs rounded-lg"
               >
                 How it works?
               </a>

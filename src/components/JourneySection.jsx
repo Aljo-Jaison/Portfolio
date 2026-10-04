@@ -48,11 +48,11 @@ export default function JourneySection() {
     },
     {
       id: 5,
-      year: '2022',
-      icon: '/assets/journey/upwork.svg',
-      prefix: 'Featured as Upworks ',
-      highlight: 'Top Rated Plus UX Designer',
-      date: 'May 2022',
+      year: '2024',
+      icon: '/assets/journey/cup.svg',
+      prefix: 'Completed ',
+      highlight: 'Product Design Internship',
+      date: 'Jan 2024',
     },
     {
       id: 6,

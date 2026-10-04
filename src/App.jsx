@@ -11,7 +11,6 @@ import SkillsAndTools from './components/SkillsAndTools';
 import AboutSection from './components/AboutSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import FloatingDecorations from './components/FloatingDecorations';
 
 export default function App() {
   return (
@@ -55,9 +54,6 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
-
-      {/* Floating accessories (Awwwards Nominee, Social pill, Chat widget) */}
-      <FloatingDecorations />
     </div>
   );
 }

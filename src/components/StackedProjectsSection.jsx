@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Info } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const projectCards = [
   {
@@ -254,23 +254,6 @@ export default function StackedProjectsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Green Info Banner matching the screenshot */}
-        <div className="mt-8 p-3.5 sm:p-4 rounded-xl bg-[#EDFAF1] border border-[#C6EFD4] flex items-center gap-2.5 text-xs text-[#15803D]">
-          <Info className="w-4 h-4 text-[#16A34A] shrink-0" />
-          <span>
-            These are the best products I've worked. Also click on the{' '}
-            <a 
-              href="https://dribbble.com" 
-              target="_blank" 
-              rel="noreferrer"
-              className="font-bold underline hover:text-[#166534]"
-            >
-              View All Design Works
-            </a>{' '}
-            button for dribbble portfolio.
-          </span>
         </div>
 
       </div>

@@ -37,7 +37,7 @@ export default function WhenICanHelp() {
             <div className="pt-2">
               <a
                 href="#contact"
-                className="inline-flex items-center px-5 py-2.5 rounded-lg border border-zinc-200 text-zinc-900 text-xs font-semibold hover:bg-zinc-50 hover:border-zinc-300 transition-colors shadow-xs"
+                className="btn-secondary px-5 py-2.5 text-xs rounded-lg"
               >
                 Let's Book a Free Call
               </a>

@@ -23,7 +23,7 @@ export default function CarIllustration() {
   return (
     <div 
       ref={containerRef} 
-      className="w-full max-w-[280px] sm:max-w-[340px] h-[120px] sm:h-[140px] mx-auto flex items-center justify-center select-none"
+      className="w-full max-w-[440px] sm:max-w-[540px] md:max-w-[620px] h-[180px] sm:h-[220px] md:h-[250px] mx-auto flex items-center justify-center select-none"
     />
   );
 }

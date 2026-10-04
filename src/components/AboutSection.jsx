@@ -1,100 +1,205 @@
 import React from 'react';
-import { Award, Globe2, Briefcase, Heart, Sparkles, CheckCircle2 } from 'lucide-react';
-import { personalInfo } from '../data/portfolioData';
+import { Check } from 'lucide-react';
+
+const trustMetrics = [
+  {
+    iconSrc: '/assets/journey/contra.svg',
+    isBadge: false,
+    tag: 'Network',
+    title: 'LinkedIn Network',
+    description: 'Connecting with product creators, engineering teams, and founders globally.',
+  },
+  {
+    iconSrc: '/assets/journey/globe.svg',
+    isBadge: false,
+    tag: 'Experience',
+    title: '1+ Years Experience',
+    description: 'Hands-on internship background shipping clean, user-centered digital products.',
+  },
+  {
+    iconSrc: '/assets/journey/cup.svg',
+    isBadge: false,
+    tag: 'Craft',
+    title: 'High-Fidelity UI/UX',
+    description: 'Dedicated to clean aesthetics, seamless usability, and meticulous attention to detail.',
+  },
+];
+
+const careerMilestones = [
+  {
+    year: "Jan '26 – Present",
+    role: 'Founding Product Designer - AI & SaaS',
+    company: 'columsproutAI',
+    description: 'Owning end-to-end product design for AI-powered SaaS workflows, building a scalable design system with reusable components and tokens, and delivering developer-ready Figma specifications.',
+  },
+  {
+    year: "May '25 – Sep '25",
+    role: 'UI/UX Designer Intern',
+    company: 'SATCARD - IIT PALAKKAD',
+    description: 'Designed mobile and web experiences (TUTOZ learning platform), conducted usability testing with 15+ users, and collaborated closely with engineering teams for production-ready handoff.',
+  },
+];
 
 export default function AboutSection() {
-  const milestones = [
-    { year: '2025–Present', role: 'Staff Product Designer', org: 'Ventures & Studio Advisory', detail: 'Designing high-growth B2B platforms and advising venture-backed founders.' },
-    { year: '2023–2025', role: 'Lead UI/UX Designer', org: 'SaaS & Fintech Client Roster', detail: 'Shipped design systems and mobile apps with millions in monthly transaction volume.' },
-    { year: '2021–2023', role: 'Senior Product Designer', org: 'Digital Product Agency', detail: 'Led design teams through 20+ zero-to-one product sprints and redesigns.' },
-  ];
-
   return (
-    <section id="about" className="py-20 md:py-28 bg-zinc-50/50 border-t border-zinc-200/60">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 md:py-28 bg-white border-t border-zinc-100">
+      <div className="max-w-4xl mx-auto px-6 sm:px-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Story & Philosophy */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-zinc-200 text-xs font-semibold text-zinc-700 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-zinc-900" />
-              <span>About Me</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-zinc-950">
-              Passionate about clarity, design craft & user empowerment
+        {/* Section Header matching When I Can Help & Are You Looking For */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-14">
+          <div className="space-y-3 max-w-xl">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
+              About Me
             </h2>
-
-            <div className="space-y-4 text-zinc-600 text-sm sm:text-base leading-relaxed">
-              <p>
-                Over the past 6+ years, I’ve worked with founders, product managers, and engineering teams to transform ambitious concepts into usable, beloved products.
-              </p>
-              <p>
-                I believe great design isn't about unnecessary animations or superficial decoration. It’s about reducing cognitive friction, clarifying navigation, and giving users a fast, delightful path to their goals.
-              </p>
-              <p>
-                When I’m not designing component libraries in Figma, I’m exploring micro-typography, advising early-stage builders, and studying user psychology.
-              </p>
-            </div>
-
-            {/* Credibility Badges (Ashik-style recognition) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4">
-              <div className="p-3.5 rounded-xl bg-white border border-zinc-200/80 shadow-xs space-y-1">
-                <Award className="w-4 h-4 text-amber-500" />
-                <div className="text-xs font-bold text-zinc-900">Top Rated Plus</div>
-                <div className="text-[10px] text-zinc-500">Global UX Rank</div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white border border-zinc-200/80 shadow-xs space-y-1">
-                <Globe2 className="w-4 h-4 text-cyan-600" />
-                <div className="text-xs font-bold text-zinc-900">12+ Countries</div>
-                <div className="text-[10px] text-zinc-500">Cross-border teams</div>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-white border border-zinc-200/80 shadow-xs space-y-1">
-                <Heart className="w-4 h-4 text-rose-500" />
-                <div className="text-xs font-bold text-zinc-900">99% Client Trust</div>
-                <div className="text-[10px] text-zinc-500">Repeated partnerships</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Experience Timeline */}
-          <div className="lg:col-span-6 bg-white p-6 sm:p-8 rounded-2xl border border-zinc-200/90 shadow-sm space-y-6">
-            <h3 className="text-lg font-bold text-zinc-950 pb-3 border-b border-zinc-100 flex items-center justify-between">
-              <span>Career Track Record</span>
-              <span className="text-xs font-normal text-zinc-400">2021 – Present</span>
-            </h3>
-
-            <div className="space-y-6">
-              {milestones.map((m, i) => (
-                <div key={i} className="relative pl-6 border-l-2 border-zinc-200 last:border-l-0 space-y-1">
-                  <div className="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-zinc-950"></div>
-                  <div className="flex items-center justify-between text-xs">
-                    <span className="font-semibold text-zinc-950">{m.role}</span>
-                    <span className="font-mono text-zinc-400 text-[11px]">{m.year}</span>
-                  </div>
-                  <div className="text-xs font-medium text-emerald-700">{m.org}</div>
-                  <p className="text-xs text-zinc-600 pt-0.5 leading-relaxed">{m.detail}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-4 border-t border-zinc-100 flex items-center justify-between text-xs text-zinc-500">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Full CV & References available upon request
-              </span>
+            <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed tracking-normal">
+              Passionate about clarity, design craft & user empowerment—turning complex design problems into intuitive, high-conversion products.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <a
                 href="#contact"
-                className="font-semibold text-zinc-950 hover:underline"
+                className="btn-secondary px-5 py-2.5 text-xs rounded-lg"
               >
-                Inquire →
+                Let's Book a Free Call
+              </a>
+              <a
+                href="https://www.linkedin.com/in/aljo-kj/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold text-zinc-700 hover:text-zinc-950 hover:bg-zinc-50 border border-zinc-200/80 transition-all shadow-xs"
+              >
+                <span>Check My LinkedIn Profile</span>
+                <span className="text-zinc-400">↗</span>
               </a>
             </div>
           </div>
 
+          {/* Designer Accessories Illustration */}
+          <div className="hidden md:block shrink-0">
+            <img 
+              src="/assets/lookingfor/hat-glasses.webp" 
+              alt="Designer Essentials" 
+              className="w-24 sm:w-28 h-auto object-contain opacity-90"
+            />
+          </div>
+        </div>
+
+        {/* 1. Core Story Card */}
+        <div className="bg-white rounded-2xl p-7 sm:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 mb-8 space-y-6">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-zinc-100">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span className="text-xs font-bold text-zinc-900 tracking-tight">
+                UI/UX Product Designer
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-zinc-600">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>1+ Years Internship & Design Experience</span>
+            </div>
+          </div>
+
+          <div className="space-y-4 text-xs sm:text-sm text-zinc-600 leading-relaxed tracking-normal">
+            <p>
+              Over the past 1+ years of hands-on internship experience, I’ve collaborated with founders, product teams, and developers to transform ambitious concepts into usable, well-crafted products that solve real problems.
+            </p>
+            <p>
+              I believe great design isn't about unnecessary decoration or bloated animations. It’s about reducing cognitive friction, clarifying navigation, and giving users an effortless path to their goals.
+            </p>
+            <p>
+              With practical grounding in <strong className="font-semibold text-zinc-900">user research</strong>, <strong className="font-semibold text-zinc-900">information architecture</strong>, and <strong className="font-semibold text-zinc-900">developer-ready Figma design systems</strong>, I create intuitive digital platforms that align seamlessly with business goals.
+            </p>
+          </div>
+        </div>
+
+        {/* 2. Three Trust & Recognition Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          {trustMetrics.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 sm:p-7 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-10 h-10 rounded-xl bg-zinc-50 border border-zinc-200/60 flex items-center justify-center p-2 shadow-2xs">
+                    <img 
+                      src={item.iconSrc} 
+                      alt={item.title} 
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <span className="text-[11px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-600">
+                    {item.tag}
+                  </span>
+                </div>
+
+                <div className="space-y-1.5">
+                  <h3 className="text-base font-bold text-zinc-950 tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-zinc-500 leading-relaxed tracking-normal">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* 3. Career Track Record & Milestones */}
+        <div className="bg-white rounded-2xl p-7 sm:p-9 border border-zinc-200/60 shadow-xs hover:border-zinc-300 hover:shadow-sm transition-all duration-200 space-y-6">
+          <div className="flex items-center justify-between pb-4 border-b border-zinc-100">
+            <div>
+              <h3 className="text-base sm:text-lg font-bold text-zinc-950 tracking-tight">
+                Career Track Record
+              </h3>
+              <p className="text-xs text-zinc-500 mt-0.5">
+                Key internship & project roles
+              </p>
+            </div>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-zinc-50 border border-zinc-200/70 text-zinc-600">
+              2025 – Present
+            </span>
+          </div>
+
+          <div className="space-y-6 pt-1">
+            {careerMilestones.map((milestone, idx) => (
+              <div 
+                key={idx} 
+                className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 border-b border-zinc-100 last:border-b-0 last:pb-0"
+              >
+                <div className="space-y-1 sm:max-w-md">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                    <h4 className="text-sm sm:text-[15px] font-bold text-zinc-950 tracking-tight">
+                      {milestone.role}
+                    </h4>
+                  </div>
+                  <div className="text-xs font-medium text-emerald-700 pl-4">
+                    {milestone.company}
+                  </div>
+                  <p className="text-xs text-zinc-500 leading-relaxed tracking-normal pl-4 pt-0.5">
+                    {milestone.description}
+                  </p>
+                </div>
+                <div className="text-xs font-mono text-zinc-400 pl-4 sm:pl-0 sm:shrink-0">
+                  {milestone.year}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="pt-4 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-zinc-500">
+            <span className="flex items-center gap-1.5">
+              <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
+              Case Studies & References available upon request
+            </span>
+            <a
+              href="#contact"
+              className="font-semibold text-zinc-950 hover:underline"
+            >
+              Inquire for details →
+            </a>
+          </div>
         </div>
 
       </div>

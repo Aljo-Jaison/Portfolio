@@ -98,7 +98,7 @@ export default function ProjectsShowcase({ onSelectProject }) {
                   {project.description}
                 </p>
 
-                {/* Key Metrics Box (Ashik style high-trust proof) */}
+                {/* Key Metrics Box (Aljo style high-trust proof) */}
                 <div className="grid grid-cols-2 gap-3 p-3.5 rounded-xl bg-zinc-50 border border-zinc-200/70">
                   {project.metrics.map((metric, idx) => (
                     <div key={idx} className="space-y-0.5">

@@ -1,0 +1,35 @@
+<svg width="120" height="110" viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Drafting Triangle / Set Square -->
+  <path d="M22 84L68 18C69.2 16.2 71.8 16.2 73 18L96 84C97 86.8 95 89.8 92 89.8H26C23 89.8 21 86.8 22 84Z" stroke="#18181B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Inner Cutout of Triangle -->
+  <path d="M42 78L68 38L80 78H42Z" stroke="#18181B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ruler Measurement Ticks along the hypotenuse -->
+  <path d="M38 62L43 64M47 50L52 52M56 38L61 40" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Designer Pen / Stylus crossing diagonally -->
+  <g transform="rotate(-38 58 48)">
+    <!-- Pen Barrel -->
+    <rect x="42" y="10" width="10" height="52" rx="2" stroke="#18181B" stroke-width="2.6" fill="#FFFFFF"/>
+    <!-- Pen Tip -->
+    <path d="M42 62L47 74L52 62Z" stroke="#18181B" stroke-width="2.6" fill="#FFFFFF" stroke-linejoin="round"/>
+    <path d="M47 71L47 74" stroke="#18181B" stroke-width="2" stroke-linecap="round"/>
+    <!-- Grip bands -->
+    <path d="M42 46H52M42 52H52" stroke="#18181B" stroke-width="2"/>
+    <!-- Pen Cap / Button -->
+    <path d="M44 10V6C44 4.8 45 4 46 4H48C49 4 50 4.8 50 6V10" stroke="#18181B" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bezier Curve & Anchor Nodes (Vector UI/UX theme) -->
+  <path d="M14 42C24 24 40 28 50 20" stroke="#18181B" stroke-width="2.4" stroke-dasharray="3 3" stroke-linecap="round"/>
+  <!-- Anchor node -->
+  <rect x="11" y="39" width="6" height="6" rx="1" fill="#FFFFFF" stroke="#18181B" stroke-width="2.2"/>
+  <circle cx="50" cy="20" r="3" fill="#18181B"/>
+
+  <!-- Whimsical hand-drawn sparkles/stars matching theme -->
+  <!-- Top Right Star -->
+  <path d="M104 18L106 24L112 26L106 28L104 34L102 28L96 26L102 24Z" fill="#18181B"/>
+  <!-- Top Left Sparkle -->
+  <path d="M18 14L19.5 18L24 19.5L19.5 21L18 25L16.5 21L12 19.5L16.5 18Z" fill="#18181B"/>
+  <!-- Bottom Right Mini Sparkle -->
+  <path d="M102 72L103 75L106 76L103 77L102 80L101 77L98 76L101 75Z" fill="#18181B"/>
+</svg>

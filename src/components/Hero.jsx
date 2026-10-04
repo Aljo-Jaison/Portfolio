@@ -21,7 +21,7 @@ export default function Hero() {
             {/* Headline Group */}
             <div className="space-y-2">
               <h4 className="text-lg sm:text-xl font-semibold text-zinc-900 tracking-tight flex items-center gap-2">
-                <span>👋 Hi! I'm Ashik Prottoy & your go-to</span>
+                <span>👋 Hi! I'm Aljo K J & your go-to</span>
               </h4>
               
               <h1 className="text-5xl sm:text-6xl font-black text-zinc-950 tracking-tight leading-[1.08]">
@@ -33,47 +33,35 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* Avatar Group + Satisfied Clients Proof */}
-            <div className="flex items-center gap-3 pt-1">
-              <img 
-                src="/assets/avatar-group.svg" 
-                alt="100+ Satisfied Clients" 
-                className="h-9 w-auto object-contain"
-              />
-              <span className="text-xs sm:text-sm font-medium text-[#1F70E5] hover:underline cursor-pointer">
-                100+ Happy And Satisfied Clients
-              </span>
-            </div>
-
             {/* The 3 CTAs requested by the user: See my works, About me, Contact me */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              {/* CTA 1: See my works (Solid Black) */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              {/* CTA 1: See my works (Primary - inverts to secondary on hover) */}
               <a
                 href="#works"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-zinc-950 text-white font-semibold text-sm hover:bg-zinc-800 transition-colors shadow-xs"
+                className="btn-primary px-6 py-3 text-sm rounded-lg tracking-normal"
               >
                 See my works
               </a>
 
-              {/* CTA 2: About me (White with 1px border) */}
+              {/* CTA 2: About me (Secondary - fills to primary on hover) */}
               <a
                 href="#about"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-zinc-900 border border-zinc-200 font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors shadow-xs"
+                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal"
               >
                 About me
               </a>
 
-              {/* CTA 3: Contact me */}
+              {/* CTA 3: Contact me (Secondary - fills to primary on hover) */}
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-zinc-800 border border-zinc-200 font-semibold text-sm hover:bg-zinc-50 hover:border-zinc-300 transition-colors shadow-xs"
+                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal"
               >
                 Contact me
               </a>
             </div>
 
-            {/* Subtle footer note under buttons matching the screenshot */}
-            <p className="text-xs text-zinc-400 font-normal pt-1">
+            {/* Subtle note under buttons with generous breathing space */}
+            <p className="text-xs sm:text-[13px] text-zinc-400 tracking-wider leading-relaxed pt-2">
               I work independently, offering exceptional value and quality in my services.
             </p>
 

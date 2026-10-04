@@ -3,9 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-white text-zinc-900 font-sans tracking-tight;
+    @apply bg-white text-zinc-900 font-sans tracking-normal antialiased;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  /* Primary Button: Solid black default -> inverts to secondary outline on hover */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-zinc-950 text-white border border-zinc-950 font-semibold transition-all duration-200 shadow-sm hover:bg-white hover:text-zinc-950 hover:border-zinc-300 hover:shadow cursor-pointer;
+  }
+
+  /* Secondary Button: Clean white outline default -> fills to primary solid black on hover */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-white text-zinc-900 border border-zinc-200 font-semibold transition-all duration-200 shadow-sm hover:bg-zinc-950 hover:text-white hover:border-zinc-950 hover:shadow cursor-pointer;
   }
 }
 
@@ -13,6 +28,20 @@
 .bg-grid-subtle {
   background-size: 32px 32px;
   background-image: radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+/* Infinite slow moving marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
 }
 
 /* Glassmorphism pill styling */

@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-lg bg-white text-zinc-950 font-bold text-xs flex items-center justify-center">
-                AM
+                AKJ
               </div>
               <span className="font-bold text-base tracking-tight">{personalInfo.name}</span>
             </div>
@@ -44,6 +44,13 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
           <div className="flex items-center gap-1.5">
             <span>© {new Date().getFullYear()} {personalInfo.name}. All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-5 text-zinc-400">
+            <a href={personalInfo.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+            <a href={personalInfo.socials.behance} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Behance</a>
+            <a href={personalInfo.socials.github} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
+            <a href={personalInfo.socials.pinterest} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">Pinterest</a>
           </div>
 
           <div className="flex items-center gap-4">

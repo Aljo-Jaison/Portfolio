@@ -1,20 +1,21 @@
 export const personalInfo = {
-  name: "Alex Morgan",
+  name: "Aljo K J",
   role: "UI/UX & Product Designer",
   status: "Available for new projects",
-  location: "San Francisco, CA / Remote",
-  bio: "I design intuitive, high-conversion digital experiences for early-stage startups and global brands. Specializing in complex SaaS, design systems, and mobile interfaces.",
-  email: "alex.morgan.design@gmail.com",
+  location: "India / Remote",
+  bio: "Product Designer owning end-to-end product design across research, interaction, visual design, and developer handoff. Designing AI-powered SaaS and modern digital products with scalable design systems.",
+  email: "aljojaisonk1@gmail.com",
+  phone: "+918590055019",
   socials: {
-    linkedin: "https://linkedin.com",
-    dribbble: "https://dribbble.com",
-    twitter: "https://x.com",
-    github: "https://github.com",
-    calendly: "https://calendly.com",
+    linkedin: "https://www.linkedin.com/in/aljo-kj/",
+    behance: "https://www.behance.net/aljojaison",
+    github: "https://github.com/Aljo-Jaison",
+    pinterest: "https://in.pinterest.com/Aljo_Jaison/",
+    calendly: "https://calendly.com/aljojaisonk1",
   },
   stats: [
-    { label: "Years Experience", value: "6+" },
-    { label: "Products Shipped", value: "35+" },
+    { label: "Years Experience", value: "1+" },
+    { label: "Products Shipped", value: "10+" },
     { label: "Client Satisfaction", value: "99%" },
     { label: "Avg. Conversion Lift", value: "+44%" },
   ]
@@ -137,7 +138,7 @@ export const processSteps = [
 export const skillsAndTools = [
   {
     name: "Figma & FigJam",
-    level: "Expert (6+ Yrs)",
+    level: "Specialist (1+ Yrs)",
     description: "Auto-layout wizardry, advanced component variants, design tokens, and interactive variables.",
     icon: "figma"
   },
