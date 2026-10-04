@@ -63,7 +63,7 @@ export default function SocialProof() {
               <img
                 src={client.file}
                 alt={client.name}
-                className="h-7 sm:h-9 md:h-10 max-w-[170px] sm:max-w-[200px] md:max-w-[220px] object-contain filter grayscale opacity-45 transition-all duration-300 group-hover/logo:grayscale-0 group-hover/logo:opacity-100"
+                className="h-7 sm:h-9 md:h-10 max-w-[170px] sm:max-w-[200px] md:max-w-[220px] object-contain filter grayscale contrast-125 brightness-75 opacity-65 transition-all duration-300 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 group-hover/logo:brightness-100 group-hover/logo:contrast-100"
               />
             </a>
           ))}
