@@ -10,23 +10,18 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleLinkClick = (pageId, options = {}, e) => {
-    if (e) e.preventDefault();
-    navigate(pageId, options);
-  };
-
   return (
     <footer id="footer" className="bg-zinc-950 text-white py-10 sm:py-12 md:py-14 border-t border-zinc-900">
       <div className="site-container space-y-8 sm:space-y-10">
         
-        {/* Top Section: Brand & Details on Left, Social Media Links on Right */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-8 sm:pb-10 border-b border-zinc-900">
+        {/* Top Section: Brand & Details on Left, Available Worldwide & Scroll to Top on Right */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 sm:gap-8 pb-8 sm:pb-10 border-b border-zinc-900">
           
-          {/* Left: Name, Logo, Full-width Subtext, and Available Worldwide below */}
-          <div className="space-y-3.5 max-w-2xl">
+          {/* Left: Name, Logo, and Subtext */}
+          <div className="space-y-3 max-w-xl">
             <button 
               type="button"
-              onClick={(e) => handleLinkClick('home', {}, e)}
+              onClick={() => navigate('home')}
               className="flex items-center gap-3 text-left cursor-pointer group"
             >
               <img 
@@ -39,57 +34,26 @@ export default function Footer() {
               </span>
             </button>
 
-            {/* Filled subtext without artificial 2-line constraint */}
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
               UI/UX & Product Designer crafting simple, scalable, and high-impact digital experiences across web, mobile, and design systems.
             </p>
+          </div>
 
-            {/* Available Worldwide placed directly below Name, Logo, and Subtext */}
-            <div className="pt-1 flex items-center gap-2 text-xs sm:text-sm text-zinc-400">
+          {/* Right: Available Worldwide Status + Scroll to top button */}
+          <div className="flex items-center gap-3.5 sm:gap-4 shrink-0">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs sm:text-sm text-zinc-300">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="font-medium text-zinc-300">
+              <span className="font-medium tracking-tight">
                 Available Worldwide (Remote / Hybrid)
               </span>
             </div>
-          </div>
-
-          {/* Right: Navigation Links (Works, Process, About, Contact) + Scroll to top button */}
-          <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-xs sm:text-sm text-zinc-400 font-medium shrink-0">
-            <a 
-              href="/works" 
-              onClick={(e) => handleLinkClick('works', {}, e)}
-              className="hover:text-white transition-colors py-1 cursor-pointer"
-            >
-              Works
-            </a>
-            <a 
-              href="/works#process" 
-              onClick={(e) => handleLinkClick('works', { targetId: 'process' }, e)}
-              className="hover:text-white transition-colors py-1 cursor-pointer"
-            >
-              Process
-            </a>
-            <a 
-              href="/about" 
-              onClick={(e) => handleLinkClick('about', {}, e)}
-              className="hover:text-white transition-colors py-1 cursor-pointer"
-            >
-              About
-            </a>
-            <a 
-              href="/contact" 
-              onClick={(e) => handleLinkClick('contact', {}, e)}
-              className="hover:text-white transition-colors py-1 cursor-pointer"
-            >
-              Contact
-            </a>
 
             <button
               onClick={scrollToTop}
-              className="p-2 sm:p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all cursor-pointer ml-1"
+              className="p-2 sm:p-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all cursor-pointer"
               title="Back to top"
               aria-label="Back to top"
             >
