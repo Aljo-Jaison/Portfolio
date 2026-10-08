@@ -3,9 +3,8 @@ import { Menu, X, Download } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolledPastHeroCtas, setScrolledPastHeroCtas] = useState(false);
-  const { currentPage, navigate } = useNavigation();
+  const { currentPage, navigate, mobileMenuOpen, setMobileMenuOpen } = useNavigation();
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -37,18 +36,6 @@ export default function Navbar() {
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [currentPage]);
-
-  // Lock body scroll when mobile menu is open to prevent background scrolling
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
 
   const handleNavClick = (pageId, e) => {
     if (e) e.preventDefault();
@@ -196,7 +183,7 @@ export default function Navbar() {
 
         {/* Mobile Navigation controls */}
         <div className="md:hidden flex items-center gap-2">
-          {/* Mobile Contact CTA - visible when not on contact page AND mobile menu is not open */}
+          {/* Mobile Contact CTA - visible when not on contact page AND mobile menu is closed */}
           {currentPage !== 'contact' && !mobileMenuOpen && (
             <a
               href="/contact"
@@ -207,7 +194,7 @@ export default function Navbar() {
             </a>
           )}
 
-          {/* Mobile Resume Button - visible when not on about page AND mobile menu is not open */}
+          {/* Mobile Resume Button - visible when not on about page AND mobile menu is closed */}
           {currentPage !== 'about' && !mobileMenuOpen && (
             <a
               href="/resume.pdf"
@@ -234,15 +221,15 @@ export default function Navbar() {
       {/* Blurred backdrop overlay for screen background when mobile hamburger menu is active */}
       {mobileMenuOpen && (
         <div 
-          className="fixed inset-x-0 bottom-0 top-[57px] sm:top-[64px] bg-zinc-950/20 backdrop-blur-sm z-40 md:hidden animate-in fade-in duration-200"
+          className="fixed inset-0 top-[57px] sm:top-[64px] bg-zinc-950/40 backdrop-blur-md z-40 md:hidden animate-in fade-in duration-200 cursor-pointer"
           onClick={() => setMobileMenuOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/* Mobile Menu Dropdown with matching translucent glassmorphism */}
+      {/* Mobile Menu Dropdown with matching elevated glassmorphism */}
       {mobileMenuOpen && (
-        <div className="relative z-50 md:hidden bg-white/95 backdrop-blur-md border-b border-zinc-200/60 px-6 py-5 space-y-3.5 text-sm animate-in fade-in slide-in-from-top-2 duration-150 shadow-xl">
+        <div className="relative z-50 md:hidden bg-white/95 backdrop-blur-xl border-b border-zinc-200/80 px-6 py-5 space-y-3.5 text-sm animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xl">
           {navLinks.map((link) => {
             const isActive = currentPage === link.id;
             return (

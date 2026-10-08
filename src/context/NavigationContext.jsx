@@ -3,6 +3,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const NavigationContext = createContext({
   currentPage: 'home',
   navigate: () => {},
+  mobileMenuOpen: false,
+  setMobileMenuOpen: () => {},
 });
 
 const PAGE_TITLES = {
@@ -25,11 +27,27 @@ export function NavigationProvider({ children }) {
   };
 
   const [currentPage, setCurrentPage] = useState(getInitialPage);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Keep page title synchronized
   useEffect(() => {
     document.title = PAGE_TITLES[currentPage] || PAGE_TITLES.home;
   }, [currentPage]);
+
+  // Lock body scroll and prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navigate = (page, options = {}) => {
     const { targetId = null, replace = false } = options;
@@ -37,6 +55,7 @@ export function NavigationProvider({ children }) {
     const targetPage = validPages.includes(page) ? page : 'home';
 
     setCurrentPage(targetPage);
+    setMobileMenuOpen(false);
 
     const path = targetPage === 'home' ? '/' : `/${targetPage}`;
     const fullUrl = targetId ? `${path}#${targetId}` : path;
@@ -66,6 +85,7 @@ export function NavigationProvider({ children }) {
     const handleUrlChange = () => {
       const page = getInitialPage();
       setCurrentPage(page);
+      setMobileMenuOpen(false);
 
       // If there's an anchor hash on popstate, scroll to it
       const hash = window.location.hash.replace(/^#/, '');
@@ -89,7 +109,7 @@ export function NavigationProvider({ children }) {
   }, []);
 
   return (
-    <NavigationContext.Provider value={{ currentPage, navigate }}>
+    <NavigationContext.Provider value={{ currentPage, navigate, mobileMenuOpen, setMobileMenuOpen }}>
       {children}
     </NavigationContext.Provider>
   );

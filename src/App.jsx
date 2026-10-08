@@ -9,15 +9,37 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
 function PageContent() {
-  const { currentPage } = useNavigation();
+  const { currentPage, mobileMenuOpen } = useNavigation();
 
   return (
-    <main className="flex-1">
+    <main
+      className={`flex-1 transition-[filter,opacity] duration-300 ease-out ${
+        mobileMenuOpen
+          ? 'filter blur-[10px] opacity-65 md:filter-none md:opacity-100 pointer-events-none select-none'
+          : ''
+      }`}
+    >
       {currentPage === 'home' && <HomePage />}
       {currentPage === 'works' && <WorksPage />}
       {currentPage === 'about' && <AboutPage />}
       {currentPage === 'contact' && <ContactPage />}
     </main>
+  );
+}
+
+function PageFooter() {
+  const { mobileMenuOpen } = useNavigation();
+
+  return (
+    <div
+      className={`transition-[filter,opacity] duration-300 ease-out ${
+        mobileMenuOpen
+          ? 'filter blur-[10px] opacity-65 md:filter-none md:opacity-100 pointer-events-none select-none'
+          : ''
+      }`}
+    >
+      <Footer />
+    </div>
   );
 }
 
@@ -28,11 +50,11 @@ export default function App() {
         {/* Universal Navbar across all pages */}
         <Navbar />
 
-        {/* Dynamic Page Router */}
+        {/* Dynamic Page Router with mobile menu blur */}
         <PageContent />
 
-        {/* Universal Footer across all pages */}
-        <Footer />
+        {/* Universal Footer with mobile menu blur */}
+        <PageFooter />
 
         {/* Floating Return To Top CTA */}
         <FloatingScrollToTop />
