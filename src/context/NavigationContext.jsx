@@ -34,21 +34,6 @@ export function NavigationProvider({ children }) {
     document.title = PAGE_TITLES[currentPage] || PAGE_TITLES.home;
   }, [currentPage]);
 
-  // Lock body scroll and prevent background scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
   const navigate = (page, options = {}) => {
     const { targetId = null, replace = false } = options;
     const validPages = ['home', 'works', 'about', 'contact'];

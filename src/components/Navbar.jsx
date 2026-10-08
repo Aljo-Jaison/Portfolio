@@ -47,8 +47,8 @@ export default function Navbar() {
   const showHeroDuplicates = currentPage !== 'home' || scrolledPastHeroCtas;
 
   return (
-    <header className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
-      <div className="site-container py-3.5 sm:py-4 flex items-center justify-between">
+    <header className="sticky top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
+      <div className="site-container py-3.5 sm:py-4 flex items-center justify-between relative z-50">
         
         {/* Brand Logo */}
         <a 
@@ -209,27 +209,18 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-zinc-700 hover:text-zinc-950 rounded-lg hover:bg-zinc-100/60 transition-colors cursor-pointer"
+            className="p-2 text-zinc-700 hover:text-zinc-950 rounded-lg hover:bg-zinc-100/60 transition-colors cursor-pointer relative z-50"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-zinc-950" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
       </div>
 
-      {/* Blurred backdrop overlay for screen background when mobile hamburger menu is active */}
+      {/* Mobile Menu Dropdown with elevated card styling */}
       {mobileMenuOpen && (
-        <div 
-          className="fixed inset-0 top-[57px] sm:top-[64px] bg-zinc-950/40 backdrop-blur-md z-40 md:hidden animate-in fade-in duration-200 cursor-pointer"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Mobile Menu Dropdown with matching elevated glassmorphism */}
-      {mobileMenuOpen && (
-        <div className="relative z-50 md:hidden bg-white/95 backdrop-blur-xl border-b border-zinc-200/80 px-6 py-5 space-y-3.5 text-sm animate-in fade-in slide-in-from-top-2 duration-200 shadow-2xl">
+        <div className="relative z-50 md:hidden bg-white border-b border-zinc-200/80 px-6 py-5 space-y-3.5 text-sm animate-in fade-in slide-in-from-top-2 duration-150 shadow-2xl">
           {navLinks.map((link) => {
             const isActive = currentPage === link.id;
             return (

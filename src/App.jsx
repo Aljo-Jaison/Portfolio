@@ -15,7 +15,7 @@ function PageContent() {
     <main
       className={`flex-1 transition-[filter,opacity] duration-300 ease-out ${
         mobileMenuOpen
-          ? 'filter blur-[10px] opacity-65 md:filter-none md:opacity-100 pointer-events-none select-none'
+          ? 'filter blur-[8px] opacity-65 md:filter-none md:opacity-100'
           : ''
       }`}
     >
@@ -34,7 +34,7 @@ function PageFooter() {
     <div
       className={`transition-[filter,opacity] duration-300 ease-out ${
         mobileMenuOpen
-          ? 'filter blur-[10px] opacity-65 md:filter-none md:opacity-100 pointer-events-none select-none'
+          ? 'filter blur-[8px] opacity-65 md:filter-none md:opacity-100'
           : ''
       }`}
     >
@@ -43,22 +43,40 @@ function PageFooter() {
   );
 }
 
+function MainApp() {
+  const { mobileMenuOpen, setMobileMenuOpen } = useNavigation();
+
+  return (
+    <div className="min-h-screen w-full bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
+      {/* Universal Navbar across all pages (z-50) */}
+      <Navbar />
+
+      {/* Full-screen backdrop overlay: covers entire screen below the header (z-40) */}
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-zinc-950/40 backdrop-blur-md md:hidden transition-opacity duration-200 cursor-pointer"
+          onClick={() => setMobileMenuOpen(false)}
+          onTouchMove={(e) => e.preventDefault()}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Dynamic Page Router */}
+      <PageContent />
+
+      {/* Universal Footer */}
+      <PageFooter />
+
+      {/* Floating Return To Top CTA */}
+      <FloatingScrollToTop />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <NavigationProvider>
-      <div className="min-h-screen w-full bg-white text-zinc-900 selection:bg-zinc-950 selection:text-white flex flex-col font-sans relative">
-        {/* Universal Navbar across all pages */}
-        <Navbar />
-
-        {/* Dynamic Page Router with mobile menu blur */}
-        <PageContent />
-
-        {/* Universal Footer with mobile menu blur */}
-        <PageFooter />
-
-        {/* Floating Return To Top CTA */}
-        <FloatingScrollToTop />
-      </div>
+      <MainApp />
     </NavigationProvider>
   );
 }
