@@ -4,7 +4,7 @@ import SocialProof from '../components/SocialProof';
 import WhenICanHelp from '../components/WhenICanHelp';
 import LookingForSection from '../components/LookingForSection';
 import { useNavigation } from '../context/NavigationContext';
-import { ArrowRight, Sparkles, Send } from 'lucide-react';
+import { ArrowRight, Send } from 'lucide-react';
 
 export default function HomePage() {
   const { navigate } = useNavigation();
@@ -30,11 +30,7 @@ export default function HomePage() {
             
             {/* Card 1: Explore Works */}
             <div className="bg-white rounded-2xl p-6 sm:p-8 border border-zinc-200/80 shadow-xs hover:shadow-md hover:border-zinc-300 transition-all duration-200 flex flex-col justify-between group">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>Selected Case Studies</span>
-                </div>
+              <div className="space-y-2.5">
                 <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight">
                   Explore Products I've Built
                 </h3>

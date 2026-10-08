@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Download } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolledPastHeroCtas, setScrolledPastHeroCtas] = useState(false);
   const { currentPage, navigate } = useNavigation();
 
   const navLinks = [
@@ -13,11 +14,50 @@ export default function Navbar() {
     { id: 'contact', label: 'Contact' },
   ];
 
+  // Track whether the Hero CTAs section is still in the viewport when on the Home page
+  useEffect(() => {
+    if (currentPage !== 'home') {
+      setScrolledPastHeroCtas(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      const heroCtasEl = document.getElementById('hero-ctas');
+      if (heroCtasEl) {
+        const rect = heroCtasEl.getBoundingClientRect();
+        // Trigger when the bottom of the Hero CTAs section scrolls past the top (above navbar height)
+        setScrolledPastHeroCtas(rect.bottom < 70);
+      } else {
+        setScrolledPastHeroCtas(window.scrollY > 300);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentPage]);
+
+  // Lock body scroll when mobile menu is open to prevent background scrolling
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (pageId, e) => {
     if (e) e.preventDefault();
     navigate(pageId);
     setMobileMenuOpen(false);
   };
+
+  // On Home page, hide duplicate links/CTAs while the Hero CTAs are visible in viewport
+  const showHeroDuplicates = currentPage !== 'home' || scrolledPastHeroCtas;
 
   return (
     <header className="sticky top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-zinc-200/50 transition-colors duration-200">
@@ -39,26 +79,83 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center gap-6 sm:gap-7 text-[14px] sm:text-[15px]">
-          {navLinks.map((link) => {
-            const isActive = currentPage === link.id;
-            return (
+          {/* Home link - always visible */}
+          <a
+            href="/"
+            onClick={(e) => handleNavClick('home', e)}
+            className={`transition-colors py-1 relative ${
+              currentPage === 'home' 
+                ? 'font-bold text-zinc-950' 
+                : 'font-medium text-zinc-600 hover:text-zinc-950'
+            }`}
+          >
+            <span>Home</span>
+            {currentPage === 'home' && (
+              <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
+            )}
+          </a>
+
+          {/* "My Works" link - hidden when Hero CTAs are in viewport on Home */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+              showHeroDuplicates 
+                ? 'max-w-[120px] opacity-100 translate-x-0' 
+                : 'max-w-0 opacity-0 -translate-x-3 pointer-events-none'
+            }`}
+          >
+            <a
+              href="/works"
+              onClick={(e) => handleNavClick('works', e)}
+              className={`transition-colors py-1 relative whitespace-nowrap ${
+                currentPage === 'works' 
+                  ? 'font-bold text-zinc-950' 
+                  : 'font-medium text-zinc-600 hover:text-zinc-950'
+              }`}
+            >
+              <span>My Works</span>
+              {currentPage === 'works' && (
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
+              )}
+            </a>
+          </div>
+
+          {/* "About me" link - hidden when Hero CTAs are in viewport on Home */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+              showHeroDuplicates 
+                ? 'max-w-[120px] opacity-100 translate-x-0' 
+                : 'max-w-0 opacity-0 -translate-x-3 pointer-events-none'
+            }`}
+          >
+            <a
+              href="/about"
+              onClick={(e) => handleNavClick('about', e)}
+              className={`transition-colors py-1 relative whitespace-nowrap ${
+                currentPage === 'about' 
+                  ? 'font-bold text-zinc-950' 
+                  : 'font-medium text-zinc-600 hover:text-zinc-950'
+              }`}
+            >
+              <span>About me</span>
+              {currentPage === 'about' && (
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
+              )}
+            </a>
+          </div>
+
+          {/* "Contact" text link - shown when on Contact page as active indicator */}
+          {currentPage === 'contact' && (
+            <div className="flex items-center">
               <a
-                key={link.id}
-                href={link.id === 'home' ? '/' : `/${link.id}`}
-                onClick={(e) => handleNavClick(link.id, e)}
-                className={`transition-colors py-1 relative ${
-                  isActive 
-                    ? 'font-bold text-zinc-950' 
-                    : 'font-medium text-zinc-600 hover:text-zinc-950'
-                }`}
+                href="/contact"
+                onClick={(e) => handleNavClick('contact', e)}
+                className="font-bold text-zinc-950 py-1 relative whitespace-nowrap"
               >
-                <span>{link.label}</span>
-                {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
-                )}
+                <span>Contact</span>
+                <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-zinc-950 rounded-full animate-in fade-in" />
               </a>
-            );
-          })}
+            </div>
+          )}
 
           {/* Resume Download Button (Hidden when viewing About page per user preference) */}
           <div 
@@ -79,37 +176,43 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Desktop "Contact me" CTA Button */}
-          {currentPage !== 'contact' && (
+          {/* Desktop "Contact me" CTA Button - hidden when Hero CTAs are in viewport on Home, and hidden on Contact page */}
+          <div 
+            className={`overflow-hidden transition-all duration-300 ease-out flex items-center ${
+              showHeroDuplicates && currentPage !== 'contact'
+                ? 'max-w-[160px] opacity-100 scale-100 ml-1' 
+                : 'max-w-0 opacity-0 scale-95 pointer-events-none ml-0'
+            }`}
+          >
             <a
               href="/contact"
               onClick={(e) => handleNavClick('contact', e)}
-              className="btn-primary px-4 py-2 text-xs sm:text-sm rounded-lg whitespace-nowrap ml-1 cursor-pointer"
+              className="btn-primary px-4 py-2 text-xs sm:text-sm rounded-lg whitespace-nowrap cursor-pointer"
             >
               Contact me
             </a>
-          )}
+          </div>
         </nav>
 
         {/* Mobile Navigation controls */}
         <div className="md:hidden flex items-center gap-2">
-          {/* Mobile dynamic Contact CTA when not on contact page */}
-          {currentPage !== 'contact' && (
+          {/* Mobile Contact CTA - visible when not on contact page AND mobile menu is not open */}
+          {currentPage !== 'contact' && !mobileMenuOpen && (
             <a
               href="/contact"
               onClick={(e) => handleNavClick('contact', e)}
-              className="btn-primary px-3 py-1.5 text-xs rounded-lg cursor-pointer"
+              className="btn-primary px-3 py-1.5 text-xs rounded-lg cursor-pointer animate-in fade-in duration-150"
             >
               Contact
             </a>
           )}
 
-          {/* Mobile Resume Button (Hidden when viewing About page) */}
-          {currentPage !== 'about' && (
+          {/* Mobile Resume Button - visible when not on about page AND mobile menu is not open */}
+          {currentPage !== 'about' && !mobileMenuOpen && (
             <a
               href="/resume.pdf"
               download="Aljo_KJ_Resume.pdf"
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold text-zinc-700 hover:text-zinc-950 whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg border border-zinc-200 text-xs font-semibold text-zinc-700 hover:text-zinc-950 whitespace-nowrap animate-in fade-in duration-150"
               title="Download Resume"
             >
               <Download className="w-3.5 h-3.5 text-zinc-500" />
@@ -119,7 +222,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-zinc-700 hover:text-zinc-950 rounded-lg hover:bg-zinc-100/60 transition-colors"
+            className="p-2 text-zinc-700 hover:text-zinc-950 rounded-lg hover:bg-zinc-100/60 transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -128,9 +231,18 @@ export default function Navbar() {
 
       </div>
 
+      {/* Blurred backdrop overlay for screen background when mobile hamburger menu is active */}
+      {mobileMenuOpen && (
+        <div 
+          className="fixed inset-x-0 bottom-0 top-[57px] sm:top-[64px] bg-zinc-950/20 backdrop-blur-sm z-40 md:hidden animate-in fade-in duration-200"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile Menu Dropdown with matching translucent glassmorphism */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-zinc-200/60 px-6 py-5 space-y-3.5 text-sm animate-in fade-in duration-150">
+        <div className="relative z-50 md:hidden bg-white/95 backdrop-blur-md border-b border-zinc-200/60 px-6 py-5 space-y-3.5 text-sm animate-in fade-in slide-in-from-top-2 duration-150 shadow-xl">
           {navLinks.map((link) => {
             const isActive = currentPage === link.id;
             return (
@@ -153,7 +265,7 @@ export default function Navbar() {
             href="/resume.pdf" 
             download="Aljo_KJ_Resume.pdf"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between font-medium text-zinc-700 hover:text-zinc-950 py-1.5"
+            className="flex items-center justify-between font-medium text-zinc-700 hover:text-zinc-950 py-1.5 cursor-pointer"
           >
             <span>Resume</span>
             <Download className="w-4 h-4 text-zinc-500" />

@@ -4,7 +4,7 @@ import { personalInfo } from '../data/portfolioData';
 import { useNavigation } from '../context/NavigationContext';
 
 export default function Footer() {
-  const { navigate } = useNavigation();
+  const { currentPage, navigate } = useNavigation();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -63,11 +63,55 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Section: Copyright placed in the exact middle */}
-        <div className="pt-2 text-center flex items-center justify-center">
-          <p className="text-xs sm:text-sm text-zinc-500 font-normal">
+        {/* Bottom Section: Copyright & Social Media Handles (hidden on Contact page) */}
+        <div className={`pt-2 flex flex-col sm:flex-row items-center gap-4 text-xs sm:text-sm ${
+          currentPage !== 'contact' ? 'justify-between' : 'justify-center'
+        }`}>
+          <p className="text-zinc-500 font-normal order-2 sm:order-1">
             © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
           </p>
+
+          {/* Social Media Handles - shown on Home, Works, About, hidden on Contact */}
+          {currentPage !== 'contact' && (
+            <div className="flex flex-wrap items-center gap-5 sm:gap-6 text-zinc-400 font-medium order-1 sm:order-2">
+              <a 
+                href={personalInfo.socials.linkedin} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-white transition-colors"
+                title="LinkedIn"
+              >
+                LinkedIn
+              </a>
+              <a 
+                href={personalInfo.socials.behance} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-white transition-colors"
+                title="Behance"
+              >
+                Behance
+              </a>
+              <a 
+                href={personalInfo.socials.github} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-white transition-colors"
+                title="GitHub"
+              >
+                GitHub
+              </a>
+              <a 
+                href={personalInfo.socials.pinterest} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-white transition-colors"
+                title="Pinterest"
+              >
+                Pinterest
+              </a>
+            </div>
+          )}
         </div>
 
       </div>

@@ -35,13 +35,13 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* The 3 CTAs: See my works, About me, Contact me */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+            {/* Hero CTAs: See my works, About me (fill mobile horizontal space), and Contact me (desktop only) */}
+            <div id="hero-ctas" className="w-full grid grid-cols-2 gap-3 pt-1 sm:flex sm:w-auto sm:items-center">
               {/* CTA 1: See my works */}
               <a
                 href="/works"
                 onClick={(e) => { e.preventDefault(); navigate('works'); }}
-                className="btn-primary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
+                className="btn-primary w-full sm:w-auto px-4 sm:px-6 py-3 text-xs sm:text-sm rounded-lg tracking-normal cursor-pointer flex items-center justify-center text-center"
               >
                 See my works
               </a>
@@ -50,16 +50,16 @@ export default function Hero() {
               <a
                 href="/about"
                 onClick={(e) => { e.preventDefault(); navigate('about'); }}
-                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
+                className="btn-secondary w-full sm:w-auto px-4 sm:px-6 py-3 text-xs sm:text-sm rounded-lg tracking-normal cursor-pointer flex items-center justify-center text-center"
               >
                 About me
               </a>
 
-              {/* CTA 3: Contact me */}
+              {/* CTA 3: Contact me (Hidden on mobile for cleaner look, visible on desktop) */}
               <a
                 href="/contact"
                 onClick={(e) => { e.preventDefault(); navigate('contact'); }}
-                className="btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer"
+                className="hidden sm:inline-flex btn-secondary px-6 py-3 text-sm rounded-lg tracking-normal cursor-pointer items-center justify-center text-center"
               >
                 Contact me
               </a>
